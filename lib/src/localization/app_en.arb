@@ -2,5 +2,9 @@
   "appTitle": "ahl",
   "@appTitle": {
     "description": "The title of the application"
-  }
+  },
+  "heroTitle": "Love and Serve",
+  "@heroTitle":{
+    "description": "The invitation text in the hero header"
+  } 
 }
