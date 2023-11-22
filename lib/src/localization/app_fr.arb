@@ -6,5 +6,10 @@
     "heroTitle": "Aimez et servir",
     "@heroTitle": {
         "description": "Le text d'invitation qui s'affiche dans le hero header"
-    }
+    },
+    "homeText":"Accueil",
+    "@homeText": {
+      "description": "Le text du boutton page d'acceuil"
+    },
+    "aboutUs": "A propos de"
   }

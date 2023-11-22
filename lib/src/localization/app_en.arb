@@ -6,5 +6,13 @@
   "heroTitle": "Love and Serve",
   "@heroTitle":{
     "description": "The invitation text in the hero header"
-  } 
+  },
+  "homeText":"Home",
+   "@homeText": {
+    "description": "The text on the HomePage Tab in the app bar"
+   },
+   "aboutUs": "About Us",
+   "prayers": "Prayers",
+   "ourProjects": "Our Projects", 
+   "listening": "Je t'écoute"
 }

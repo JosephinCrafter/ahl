@@ -6,8 +6,12 @@ part of '../ahl_barrel.dart';
 /// To each assets correspond an
 
 class AhlAssets {
-  const AhlAssets();
-  static const String heroBk = "images/hero_bk.png";
-  static const String heroBkAlt = "assets/images/hero_bk_alt.jpg";
-  static const String logoForm = "images/logo_form.png";
+  const AhlAssets._(); // Prevent for instantiation
+
+  static String get releasePath =>
+      kDebugMode ? '' : 'assets/'; // used to set up path when deployed
+
+  static String heroBk = "${releasePath}images/hero_bk.png";
+  static String heroBkAlt = "${releasePath}assets/images/hero_bk_alt.jpg";
+  static String logoForm = "${releasePath}images/logo_form.png";
 }
