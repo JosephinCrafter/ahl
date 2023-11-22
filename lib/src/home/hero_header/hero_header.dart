@@ -11,17 +11,54 @@ class HeroHeaderView extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        return const Stack(
-          children: [
-            Image(
-              image: AssetImage(
-                AhlAssets.heroBkAlt,
+        switch (constraints.maxWidth) {
+          case <= ScreenSizes.mobile:
+            //todo: Add the mobile implementation of hero header
+            return Center(
+              child: Text(
+                'Replace with mobile Hero header',
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      color: Theme.of(context).colorScheme.error,
+                    ),
               ),
-            ),
-            HeroTextView(),
-          ],
-        );
+            );
+          default:
+            return Container(
+              constraints: const BoxConstraints(
+                maxHeight: 700,
+                maxWidth: 1720,
+              ),
+              margin: const EdgeInsets.symmetric(
+                horizontal: Margins.big,
+              ),
+              child: const Stack(
+                children: [
+                  HeroImageView(),
+                  HeroTextView(),
+                ],
+              ),
+            );
+        }
       },
+    );
+  }
+}
+
+class HeroImageView extends StatelessWidget {
+  const HeroImageView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(
+          BorderSizes.circularBorderSize,
+        ),
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(AhlAssets.heroBk),
+        ),
+      ),
     );
   }
 }
