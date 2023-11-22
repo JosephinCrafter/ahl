@@ -3,7 +3,7 @@
     "@appTitle": {
       "description": "The title of the application"
     },
-    "heroTitle": "Aimez et servir",
+    "heroTitle": "Aimer et servir",
     "@heroTitle": {
         "description": "Le text d'invitation qui s'affiche dans le hero header"
     }
