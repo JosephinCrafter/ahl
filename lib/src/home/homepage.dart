@@ -3,6 +3,7 @@ import 'package:ahl/src/home/hero_header/hero_header.dart';
 import 'package:ahl/src/widgets/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:indicator_button/indicator_button.dart';
 
 /// Home page
 
@@ -22,25 +23,26 @@ class HomePage extends StatelessWidget {
           appBar: AppBar(
             title: const AhlLogo(),
             actions: [
-              TabBar(
-                tabs: [
-                  Tab(
-                    text: AppLocalizations.of(context)!.homeText,
-                  ),
-                  Tab(
-                    text: AppLocalizations.of(context)!.aboutUs,
-                  ),
-                  Tab(
-                    text: AppLocalizations.of(context)!.prayers,
-                  ),
-                  Tab(
-                    text: AppLocalizations.of(context)!.ourProjects,
-                  ),
-                  Tab(
-                    text: AppLocalizations.of(context)!.listening,
-                  ),
-                ],
-              )
+              TextButton(
+                onPressed: () {},
+                child: Text(AppLocalizations.of(context)!.homeText),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(AppLocalizations.of(context)!.aboutUs),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(AppLocalizations.of(context)!.prayers),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(AppLocalizations.of(context)!.ourProjects),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(AppLocalizations.of(context)!.listening),
+              ),
             ],
           ),
 
