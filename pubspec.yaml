@@ -11,6 +11,8 @@ environment:
 
 dependencies:
   build_runner: ^2.4.6
+  indicator_button:
+    git: https://github.com/Josephincrafter/indicator_button.git
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.3

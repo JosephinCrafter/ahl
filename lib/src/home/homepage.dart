@@ -3,6 +3,7 @@ import 'package:ahl/src/home/hero_header/hero_header.dart';
 import 'package:ahl/src/widgets/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:indicator_button/indicator_button.dart';
 
 /// Home page
 
