@@ -46,132 +46,38 @@ class AhlDrawer extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: Paddings.small),
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: Paddings.medium),
-                            child: Text(
-                              AppLocalizations.of(context)!.aboutUs,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(
-                                    fontFamily: 'Aileron',
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: Paddings.small),
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: Paddings.medium),
-                            child: Text(
-                              AppLocalizations.of(context)!.prayers,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(
-                                    fontFamily: 'Aileron',
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: Paddings.small),
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: Paddings.medium),
-                            child: Text(
-                              AppLocalizations.of(context)!.ourProjects,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(
-                                    fontFamily: 'Aileron',
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: Paddings.small),
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: Paddings.medium),
-                            child: Text(
-                              AppLocalizations.of(context)!.news,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(
-                                    fontFamily: 'Aileron',
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(top: 64),
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Theme.of(context).primaryColor,
-                            foregroundColor:
-                                Theme.of(context).colorScheme.onPrimary,
-                          ),
-                          child: Container(
-                            padding: ButtonGeometry.elevatedButtonPaddings,
-                            child: Text(
-                                AppLocalizations.of(context)!.makeDonation),
-                          ),
-                        ),
-                      ),
+                      ...ActionsLists.actions,
                     ],
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  constraints: const BoxConstraints.expand(height: 50),
-                  alignment: Alignment.center,
-                  decoration: const BoxDecoration(color: theme.greenOlive),
-                  child: Text(
-                    'N.D.D MADAGASCAR 2023',
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: Theme.of(context).colorScheme.onPrimary,
-                          fontFamily: 'Aileron',
-                          fontWeight: FontWeight.w100,
-                        ),
-                  ),
-                ),
-              ),
+              const DrawerFooter(),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class DrawerFooter extends StatelessWidget {
+  const DrawerFooter({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        constraints: const BoxConstraints.expand(height: 50),
+        alignment: Alignment.center,
+        decoration: const BoxDecoration(color: theme.greenOlive),
+        child: Text(
+          'N.D.D MADAGASCAR 2023',
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                color: Theme.of(context).colorScheme.onPrimary,
+                fontFamily: 'Aileron',
+                fontWeight: FontWeight.w100,
+              ),
         ),
       ),
     );
