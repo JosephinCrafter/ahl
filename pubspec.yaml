@@ -20,7 +20,7 @@ dependencies:
     sdk: flutter
   google_fonts: ^6.1.0
   intl: any
-  web: ^0.1.4-beta
+  web: ^0.3.0
   transparent_image: ^2.0.0
 
 dev_dependencies:
