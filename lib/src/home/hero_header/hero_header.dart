@@ -14,13 +14,11 @@ class HeroHeaderView extends StatelessWidget {
         switch (constraints.maxWidth) {
           case <= ScreenSizes.mobile:
             //todo: Add the mobile implementation of hero header
-            return Center(
-              child: Text(
-                'Replace with mobile Hero header',
-                style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                      color: Theme.of(context).colorScheme.error,
-                    ),
+            return Container(
+              constraints: const BoxConstraints(
+                maxHeight: 350,
               ),
+              child: const HeroImageView(isWithBorder: false),
             );
           default:
             return Container(
@@ -45,15 +43,22 @@ class HeroHeaderView extends StatelessWidget {
 }
 
 class HeroImageView extends StatelessWidget {
-  const HeroImageView({super.key});
+  const HeroImageView({
+    super.key,
+    this.isWithBorder = true,
+  });
+
+  final bool isWithBorder;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(
-          BorderSizes.circularBorderSize,
-        ),
+        borderRadius: isWithBorder
+            ? BorderRadius.circular(
+                BorderSizes.circularBorderSize,
+              )
+            : null,
         image: DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage(AhlAssets.heroBk),
@@ -64,7 +69,7 @@ class HeroImageView extends StatelessWidget {
 }
 
 class HeroTextView extends StatelessWidget {
-  const HeroTextView({Key? key}) : super(key: key);
+  const HeroTextView({super.key});
 
   @override
   Widget build(BuildContext context) {

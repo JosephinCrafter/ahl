@@ -20,7 +20,8 @@ dependencies:
     sdk: flutter
   google_fonts: ^6.1.0
   intl: any
-  web: ^0.3.0
+  web: ^0.1.4-beta
+  transparent_image: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -37,3 +38,28 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/images/
+  fonts:
+    - family: Butler
+      fonts:
+        - asset: assets/fonts/butler/butler/butler_regular.otf
+    - family: Aileron
+      fonts:
+        - asset: assets/fonts/aileron/Aileron-Regular.otf
+        - asset: assets/fonts/aileron/Aileron-UltraLight.otf
+          weight: 100
+        - asset: assets/fonts/aileron/Aileron-Thin.otf
+          weight: 200
+        - asset: assets/fonts/aileron/Aileron-Light.otf
+          weight: 300
+        - asset: assets/fonts/aileron/Aileron-SemiBold.otf
+          weight: 600
+        - asset: assets/fonts/aileron/Aileron-Bold.otf
+          weight: 700
+        - asset: assets/fonts/aileron/Aileron-Black.otf
+          weight: 800
+        - asset: assets/fonts/aileron/Aileron-Heavy.otf
+          weight: 900
+
+    - family: Alegreya
+      fonts:
+        - asset: assets/fonts/alegreya/AlegreyaSans-Regular.ttf

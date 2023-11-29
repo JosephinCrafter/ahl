@@ -1,9 +1,7 @@
 import 'package:ahl/src/ahl_barrel.dart';
 import 'package:ahl/src/home/hero_header/hero_header.dart';
-import 'package:ahl/src/widgets/logo.dart';
+import 'package:ahl/src/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:indicator_button/indicator_button.dart';
 
 /// Home page
 
@@ -17,8 +15,8 @@ class HomePage extends StatelessWidget {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         return Scaffold(
-          drawer: constraints.maxWidth <= ScreenSizes.mobile
-              ? const Drawer()
+          endDrawer: constraints.maxWidth <= ScreenSizes.mobile
+              ? const AhlDrawer()
               : null,
           appBar: const AhlAppBar(),
           // AppBar(
@@ -57,60 +55,4 @@ class HomePage extends StatelessWidget {
       },
     );
   }
-}
-
-/// class for the appBar
-class AhlAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const AhlAppBar({
-    super.key,
-    Size? preferredSize,
-    this.title = const AhlLogo(),
-    this.backgroundColor,
-  }) : _preferredSize = preferredSize ??
-            const Size.fromHeight(
-              Sizes.appBarSize,
-            );
-
-  /// The preferred size of this widget
-  final Size _preferredSize;
-  final Widget title;
-  final Color? backgroundColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        switch (constraints.maxWidth) {
-          case <= ScreenSizes.mobile:
-            // use the mobile appBar
-            return Container(
-              constraints: BoxConstraints.loose(
-                _preferredSize,
-              ),
-              color: backgroundColor ??
-                  Theme.of(context).colorScheme.secondaryContainer,
-              padding: const EdgeInsets.all(
-                Paddings.medium,
-              ),
-              child: Row(
-                children: [
-                  title,
-                ],
-              ),
-            );
-          default:
-            // Use the default web appBar
-            return Container(
-              constraints: BoxConstraints.loose(
-                _preferredSize,
-              ),
-            );
-        }
-      },
-    );
-  }
-
-  @override
-  // TODO: implement preferredSize
-  Size get preferredSize => _preferredSize;
 }

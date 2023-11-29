@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "t'écoute"
-    ]
+    ],
+    "cmake.configureOnOpen": false
 }

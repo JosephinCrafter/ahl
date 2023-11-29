@@ -3,6 +3,7 @@
   "@appTitle": {
     "description": "The title of the application"
   },
+  "longAppTitle": "Aujourd'hui l'avenir",
   "heroTitle": "Love and Serve",
   "@heroTitle":{
     "description": "The invitation text in the hero header"
@@ -14,5 +15,5 @@
    "aboutUs": "About Us",
    "prayers": "Prayers",
    "ourProjects": "Our Projects", 
-   "listening": "Je t'écoute"
+   "news": "News"
 }

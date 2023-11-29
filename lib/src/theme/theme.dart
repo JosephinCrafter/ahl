@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const Color greenOlive = Color(0xFF728C6D);
 const Color yellowRelax = Color(0xFFFFD166);
@@ -6,7 +7,8 @@ const Color yellowLight = Color(0xFFFFF9E6);
 const Color blackCharcoal = Color(0xFF282828);
 const Color blueNight = Color(0xFF36454F);
 
-ThemeData lightTheme = ThemeData.light().copyWith(
+ThemeData lightTheme = ThemeData(
+  brightness: Brightness.light,
   colorScheme: ColorScheme.fromSeed(
     seedColor: greenOlive,
     secondary: yellowRelax,
