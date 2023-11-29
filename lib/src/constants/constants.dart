@@ -36,3 +36,10 @@ class IconSizes {
   static const double large = medium * 2;
   static const double small = medium / 2;
 }
+
+class ButtonGeometry {
+  ButtonGeometry._();
+
+  static const EdgeInsets elevatedButtonPaddings =
+      EdgeInsets.symmetric(vertical: 10);
+}

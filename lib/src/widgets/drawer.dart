@@ -44,7 +44,7 @@ class AhlDrawer extends StatelessWidget {
                   ),
                   margin: const EdgeInsets.only(left: 12.0),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
@@ -134,13 +134,22 @@ class AhlDrawer extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(
-                          padding: const EdgeInsets.only(top: 64),
-                          child: ElevatedButton(
-                            onPressed: () {},
+                      Container(
+                        margin: const EdgeInsets.only(top: 64),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Theme.of(context).primaryColor,
+                            foregroundColor:
+                                Theme.of(context).colorScheme.onPrimary,
+                          ),
+                          child: Container(
+                            padding: ButtonGeometry.elevatedButtonPaddings,
                             child: Text(
                                 AppLocalizations.of(context)!.makeDonation),
-                          )),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
