@@ -3,17 +3,19 @@ part of 'widgets.dart';
 class AhlLogo extends StatelessWidget {
   const AhlLogo({
     super.key,
-    this.size = const Size(96, 96),
+    this.size = const Size(48, 48),
     this.leading,
     this.title,
     this.separation,
     this.foregroundColor,
+    this.crossAxisAlignment,
   });
 
   final Size size;
   final Widget? leading;
   final Widget? title;
   final Widget? separation;
+  final CrossAxisAlignment? crossAxisAlignment;
 
   final Color? foregroundColor;
 
@@ -27,10 +29,12 @@ class AhlLogo extends StatelessWidget {
                 Theme.of(context).textTheme.headlineLarge!.color,
           ),
       child: Row(
+        textBaseline: TextBaseline.alphabetic,
+        crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
         children: [
           leading ??
               Container(
-                constraints: BoxConstraints.loose(size),
+                constraints: BoxConstraints.tight(size),
                 child: Image.asset(
                   AhlAssets.logoForm,
                   fit: BoxFit.contain,

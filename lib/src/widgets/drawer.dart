@@ -11,8 +11,16 @@ class AhlDrawer extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
           appBar: AhlAppBar(
+            padding: const EdgeInsets.only(left: Paddings.drawerAppBarPadding),
+            crossAxisAlignment: CrossAxisAlignment.center,
             title: AhlLogo(
-              leading: Icon(Icons.home_filled, color: Colors.black54),
+              crossAxisAlignment: CrossAxisAlignment.center,
+              leading: const Icon(
+                Icons.home_filled,
+                color: Colors.black54,
+                size: IconSizes.medium,
+              ),
+              separation: Container(width: 9),
               title: Text(
                 AppLocalizations.of(context)!.longAppTitle,
               ),
@@ -45,7 +53,8 @@ class AhlDrawer extends StatelessWidget {
                           onPressed: () {},
                           child: Container(
                             alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.all(Paddings.medium),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: Paddings.medium),
                             child: Text(
                               AppLocalizations.of(context)!.aboutUs,
                               style: Theme.of(context)
@@ -60,12 +69,14 @@ class AhlDrawer extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(Paddings.small),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: Paddings.small),
                         child: TextButton(
                           onPressed: () {},
                           child: Container(
                             alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.all(Paddings.medium),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: Paddings.medium),
                             child: Text(
                               AppLocalizations.of(context)!.prayers,
                               style: Theme.of(context)
@@ -80,12 +91,14 @@ class AhlDrawer extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(Paddings.small),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: Paddings.small),
                         child: TextButton(
                           onPressed: () {},
                           child: Container(
                             alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.all(Paddings.medium),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: Paddings.medium),
                             child: Text(
                               AppLocalizations.of(context)!.ourProjects,
                               style: Theme.of(context)
@@ -100,12 +113,14 @@ class AhlDrawer extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(Paddings.small),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: Paddings.small),
                         child: TextButton(
                           onPressed: () {},
                           child: Container(
                             alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.all(Paddings.medium),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: Paddings.medium),
                             child: Text(
                               AppLocalizations.of(context)!.news,
                               style: Theme.of(context)
@@ -119,6 +134,13 @@ class AhlDrawer extends StatelessWidget {
                           ),
                         ),
                       ),
+                      Padding(
+                          padding: const EdgeInsets.only(top: 64),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                                AppLocalizations.of(context)!.makeDonation),
+                          )),
                     ],
                   ),
                 ),
