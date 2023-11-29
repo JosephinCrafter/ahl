@@ -41,7 +41,20 @@ flutter:
   fonts:
     - family: Butler
       fonts:
-        - asset: assets/fonts/butler/butler/butler_regular.otf
+        - asset: assets/fonts/butler/Butler_Regular.otf
+        - asset: assets/fonts/butler/Butler_Ultra_Light.otf
+          weight: 100
+        - asset: assets/fonts/butler/Butler_Ultra_Light.otf
+          weight: 200
+        - asset: assets/fonts/butler/butler_medium.otf
+          weight: 500
+        - asset: assets/fonts/butler/Butler_Bold.otf
+          weight: 600
+        - asset: assets/fonts/butler/Butler_Black.otf
+          weight: 700
+        - asset: assets/fonts/butler/butler_extra_bold.otf
+          weight: 800
+
     - family: Aileron
       fonts:
         - asset: assets/fonts/aileron/Aileron-Regular.otf
