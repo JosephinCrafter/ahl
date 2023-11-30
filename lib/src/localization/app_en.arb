@@ -8,6 +8,10 @@
   "@heroTitle":{
     "description": "The invitation text in the hero header"
   },
+  "heroExplanation": "Love is the most powerful force in the universe. It can defeat hate.",
+  "@heroExplanation":{
+    "description":"Use this under the Hero header Title"
+  },
   "homeText":"Home",
    "@homeText": {
     "description": "The text on the HomePage Tab in the app bar"

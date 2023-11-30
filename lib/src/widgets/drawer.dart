@@ -42,7 +42,7 @@ class AhlDrawer extends StatelessWidget {
                     maxWidth: Sizes.menuButtonWidth,
                     maxHeight: Sizes.menuButtonListHeight,
                   ),
-                  margin: const EdgeInsets.only(left: 12.0),
+                  margin: const EdgeInsets.only(left: Paddings.medium),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -70,7 +70,7 @@ class DrawerFooter extends StatelessWidget {
       child: Container(
         constraints: const BoxConstraints.expand(height: 50),
         alignment: Alignment.center,
-        decoration: const BoxDecoration(color: theme.greenOlive),
+        decoration: const BoxDecoration(color: theme.AppTheme.greenOlive),
         child: Text(
           'N.D.D MADAGASCAR 2023',
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(

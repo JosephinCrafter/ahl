@@ -12,32 +12,68 @@ class HeroHeaderView extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         switch (constraints.maxWidth) {
+          // HeroHeader fo mobile
           case <= ScreenSizes.mobile:
-            //todo: Add the mobile implementation of hero header
-            return Container(
-              constraints: const BoxConstraints(
-                maxHeight: 350,
-              ),
-              child: const HeroImageView(isWithBorder: false),
-            );
+            return const MobileHeroHeader();
           default:
-            return Container(
-              constraints: const BoxConstraints(
-                maxHeight: 700,
-                maxWidth: 1720,
-              ),
-              margin: const EdgeInsets.symmetric(
-                horizontal: Margins.big,
-              ),
-              child: const Stack(
-                children: [
-                  HeroImageView(),
-                  HeroTextView(),
-                ],
-              ),
-            );
+            return const DefaultHeroHeader();
         }
       },
+    );
+  }
+}
+
+class MobileHeroHeader extends StatefulWidget {
+  const MobileHeroHeader({super.key});
+
+  @override
+  State<MobileHeroHeader> createState() => _MobileHeroHeaderState();
+}
+
+class _MobileHeroHeaderState extends State<MobileHeroHeader> {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          constraints: const BoxConstraints(
+            maxHeight: 350,
+          ),
+          child: const HeroImageView(isWithBorder: false),
+        ),
+        Container(
+          margin: const EdgeInsets.only(top: 513),
+          child: const HeroTextView(),
+        ),
+      ],
+    );
+  }
+}
+
+class DefaultHeroHeader extends StatefulWidget {
+  const DefaultHeroHeader({super.key});
+
+  @override
+  State<DefaultHeroHeader> createState() => _DefaultHeroHeaderState();
+}
+
+class _DefaultHeroHeaderState extends State<DefaultHeroHeader> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      constraints: const BoxConstraints(
+        maxHeight: 700,
+        maxWidth: 1720,
+      ),
+      margin: const EdgeInsets.symmetric(
+        horizontal: Margins.big,
+      ),
+      child: const Stack(
+        children: [
+          HeroImageView(),
+          HeroTextView(),
+        ],
+      ),
     );
   }
 }
@@ -69,31 +105,68 @@ class HeroImageView extends StatelessWidget {
 }
 
 class HeroTextView extends StatelessWidget {
-  const HeroTextView({super.key});
+  const HeroTextView({super.key, this.needMargin = false});
+
+  final bool needMargin;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        FutureBuilder(
-          future: GoogleFonts.pendingFonts(),
-          builder: (context, snapshot) {
-            switch (snapshot.connectionState) {
-              case ConnectionState.done:
-                return Text(
-                  AppLocalizations.of(context)!.heroTitle,
-                  style: GoogleFonts.getFont(
-                    'Lato',
-                    textStyle: Theme.of(context).textTheme.headlineLarge,
-                  ),
-                );
+    return Container(
+      margin: EdgeInsets.only(
+        top: needMargin ? Margins.heroHeaderExtraTop : 0,
+      ),
+      height: HeroHeaderGeometry.heroHeaderExtrasHeight,
+      child: Column(
+        children: [
+          FutureBuilder(
+            future: GoogleFonts.pendingFonts(),
+            builder: (context, snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.done:
+                  return Column(
+                    children: [
+                      Text(
+                        AppLocalizations.of(context)!.heroTitle,
+                        style:
+                            Theme.of(context).textTheme.displayLarge!.copyWith(
+                                  fontFamily: 'Butler',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                      ),
+                      Text(AppLocalizations.of(context)!.heroExplanation,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(fontFamily: 'Aileron')),
+                      Row(
+                        children: [
+                          OutlinedButton(
+                            onPressed: () {},
+                            child: Text(
+                              AppLocalizations.of(context)!.aboutUs,
+                            ),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor:
+                                  Theme.of(context).colorScheme.onPrimary,
+                              backgroundColor: Theme.of(context).primaryColor,
+                            ),
+                            child: Text(AppLocalizations.of(context)!.prayers),
+                          )
+                        ],
+                      )
+                    ],
+                  );
 
-              default:
-                return Container();
-            }
-          },
-        ),
-      ],
+                default:
+                  return Container();
+              }
+            },
+          ),
+        ],
+      ),
     );
   }
 }

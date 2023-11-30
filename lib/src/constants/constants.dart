@@ -6,6 +6,7 @@ class BorderSizes {
 
 class Margins {
   static const double big = 200;
+  static const double heroHeaderExtraTop = 166;
 }
 
 class ScreenSizes {
@@ -42,4 +43,10 @@ class ButtonGeometry {
 
   static const EdgeInsets elevatedButtonPaddings =
       EdgeInsets.symmetric(vertical: 10);
+}
+
+class HeroHeaderGeometry {
+  HeroHeaderGeometry._();
+
+  static const double heroHeaderExtrasHeight = 200;
 }

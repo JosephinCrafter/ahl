@@ -1,20 +1,24 @@
 {
-    "appTitle": "ahl",
-    "@appTitle": {
-      "description": "The title of the application"
-    },
-    "longAppTitle": "Aujourd'hui l'avenir",
-    "heroTitle": "Aimer et servir",
-    "@heroTitle": {
-        "description": "Le text d'invitation qui s'affiche dans le hero header"
-    },
-    "homeText":"Accueil",
-    "@homeText": {
-      "description": "Le text du boutton page d'acceuil"
-    },
-    "aboutUs": "À propos de nous",
-    "prayers": "Prières",
-    "ourProjects": "Nos Projets",
-    "news": "Actualités de la communauté",
-    "makeDonation": "Nous soutenir"
-  }
+  "appTitle": "ahl",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "longAppTitle": "Aujourd'hui l'avenir",
+  "heroTitle": "Aimer et servir",
+  "@heroTitle": {
+    "description": "Le text d'invitation qui s'affiche dans le hero header"
+  },
+  "heroExplanation": "L'Amour est la force la plus puissante de l'univers. Elle peut vaincre la haine. ",
+  "@heroExplanation": {
+    "description": "Text d'accroche en dessous du text principale de l'Hero header."
+  },
+  "homeText": "Accueil",
+  "@homeText": {
+    "description": "Le text du boutton page d'acceuil"
+  },
+  "aboutUs": "À propos de nous",
+  "prayers": "Prières",
+  "ourProjects": "Nos Projets",
+  "news": "Actualités de la communauté",
+  "makeDonation": "Nous soutenir"
+}
