@@ -131,8 +131,8 @@ class HeroTextView extends StatelessWidget {
         top: needMargin ? margin ?? Margins.heroHeaderExtraTop : 0,
       ),
       constraints: const BoxConstraints(
-        maxHeight: HeroHeaderGeometry.heroHeaderExtrasHeight,
-      ),
+          // maxHeight: HeroHeaderGeometry.heroHeaderExtrasHeight,
+          ),
       child: Container(
         constraints: const BoxConstraints(
             maxWidth: HeroHeaderGeometry.heroHeaderExtrasWidth),
@@ -143,16 +143,20 @@ class HeroTextView extends StatelessWidget {
               case ConnectionState.done:
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
+                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(
-                      AppLocalizations.of(context)!.heroTitle,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                            fontFamily: 'Butler',
-                            fontWeight: FontWeight.bold,
-                          ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: Text(
+                        AppLocalizations.of(context)!.heroTitle,
+                        textAlign: TextAlign.center,
+                        style:
+                            Theme.of(context).textTheme.displayLarge!.copyWith(
+                                  fontFamily: 'Butler',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                      ),
                     ),
                     Text(
                       AppLocalizations.of(context)!.heroExplanation,
@@ -162,25 +166,29 @@ class HeroTextView extends StatelessWidget {
                           .bodyLarge!
                           .copyWith(fontFamily: 'Aileron'),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        OutlinedButton(
-                          onPressed: () {},
-                          child: Text(
-                            AppLocalizations.of(context)!.aboutUs,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 50),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlinedButton(
+                            onPressed: () {},
+                            child: Text(
+                              AppLocalizations.of(context)!.aboutUs,
+                            ),
                           ),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor:
-                                Theme.of(context).colorScheme.onPrimary,
-                            backgroundColor: Theme.of(context).primaryColor,
-                          ),
-                          child: Text(AppLocalizations.of(context)!.priesSpace),
-                        )
-                      ],
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor:
+                                  Theme.of(context).colorScheme.onPrimary,
+                              backgroundColor: Theme.of(context).primaryColor,
+                            ),
+                            child:
+                                Text(AppLocalizations.of(context)!.priesSpace),
+                          )
+                        ],
+                      ),
                     )
                   ],
                 );
