@@ -16,4 +16,5 @@ class AhlAssets {
   static String logoForm = "${releasePath}images/logo_form.png";
   static String logoFormTypoHorizontalColored =
       "${releasePath}images/logo_form_typo_horizon_colored.png";
+  static String logoNdd = "${releasePath}images/logo_ndd.png";
 }

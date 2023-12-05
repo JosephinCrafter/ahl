@@ -1,5 +1,6 @@
 import 'package:ahl/src/ahl_barrel.dart';
 import 'package:ahl/src/home/hero_header/hero_header.dart';
+import 'package:ahl/src/home/welcoming/welcoming.dart';
 import 'package:ahl/src/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class HomePage extends StatelessWidget {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         return Scaffold(
-          endDrawer: constraints.maxWidth <= ScreenSizes.mobile
+          endDrawer: constraints.maxWidth <= ScreenSizes.tablet
               ? const AhlDrawer()
               : null,
           appBar: const AhlAppBar(),
@@ -49,6 +50,7 @@ class HomePage extends StatelessWidget {
           body: ListView(
             children: const [
               HeroHeaderView(),
+              WelcomingView(),
             ],
           ),
         );

@@ -13,7 +13,7 @@ class HeroHeaderView extends StatelessWidget {
       builder: (context, constraints) {
         switch (constraints.maxWidth) {
           // HeroHeader fo mobile
-          case <= ScreenSizes.mobile:
+          case <= ScreenSizes.tablet:
             return const MobileHeroHeader();
           default:
             return const DefaultHeroHeader();
@@ -37,13 +37,16 @@ class _MobileHeroHeaderState extends State<MobileHeroHeader> {
       children: [
         Container(
           constraints: const BoxConstraints(
-            maxHeight: 350,
+            maxHeight: Sizes.mobileHeroHeaderImageHeight,
           ),
           child: const HeroImageView(isWithBorder: false),
         ),
         Container(
-          margin: const EdgeInsets.only(top: 513),
-          child: const HeroTextView(),
+          margin: const EdgeInsets.only(top: Sizes.mobileHeroHeaderImageHeight),
+          child: const HeroTextView(
+            needMargin: true,
+            margin: 50,
+          ),
         ),
       ],
     );
@@ -63,15 +66,19 @@ class _DefaultHeroHeaderState extends State<DefaultHeroHeader> {
     return Container(
       constraints: const BoxConstraints(
         maxHeight: 700,
-        maxWidth: 1720,
+        maxWidth: 1080,
       ),
-      margin: const EdgeInsets.symmetric(
-        horizontal: Margins.big,
-      ),
-      child: const Stack(
+      alignment: Alignment.center,
+      child: Stack(
         children: [
-          HeroImageView(),
-          HeroTextView(),
+          const HeroImageView(),
+          Container(
+            margin: const EdgeInsets.only(left: Margins.small),
+            alignment: Alignment.centerLeft,
+            child: const HeroTextView(
+              alignment: Alignment.centerLeft,
+            ),
+          ),
         ],
       ),
     );
@@ -105,67 +112,84 @@ class HeroImageView extends StatelessWidget {
 }
 
 class HeroTextView extends StatelessWidget {
-  const HeroTextView({super.key, this.needMargin = false});
+  const HeroTextView({
+    super.key,
+    this.needMargin = false,
+    this.alignment,
+    this.margin,
+  });
 
   final bool needMargin;
+  final double? margin;
+  final AlignmentGeometry? alignment;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: alignment ?? Alignment.center,
       margin: EdgeInsets.only(
-        top: needMargin ? Margins.heroHeaderExtraTop : 0,
+        top: needMargin ? margin ?? Margins.heroHeaderExtraTop : 0,
       ),
-      height: HeroHeaderGeometry.heroHeaderExtrasHeight,
-      child: Column(
-        children: [
-          FutureBuilder(
-            future: GoogleFonts.pendingFonts(),
-            builder: (context, snapshot) {
-              switch (snapshot.connectionState) {
-                case ConnectionState.done:
-                  return Column(
-                    children: [
-                      Text(
-                        AppLocalizations.of(context)!.heroTitle,
-                        style:
-                            Theme.of(context).textTheme.displayLarge!.copyWith(
-                                  fontFamily: 'Butler',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                      ),
-                      Text(AppLocalizations.of(context)!.heroExplanation,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyLarge!
-                              .copyWith(fontFamily: 'Aileron')),
-                      Row(
-                        children: [
-                          OutlinedButton(
-                            onPressed: () {},
-                            child: Text(
-                              AppLocalizations.of(context)!.aboutUs,
-                            ),
+      constraints: const BoxConstraints(
+        maxHeight: HeroHeaderGeometry.heroHeaderExtrasHeight,
+      ),
+      child: Container(
+        constraints: const BoxConstraints(
+            maxWidth: HeroHeaderGeometry.heroHeaderExtrasWidth),
+        child: FutureBuilder(
+          future: GoogleFonts.pendingFonts(),
+          builder: (context, snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.done:
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.heroTitle,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                            fontFamily: 'Butler',
+                            fontWeight: FontWeight.bold,
                           ),
-                          ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor:
-                                  Theme.of(context).colorScheme.onPrimary,
-                              backgroundColor: Theme.of(context).primaryColor,
-                            ),
-                            child: Text(AppLocalizations.of(context)!.prayers),
-                          )
-                        ],
-                      )
-                    ],
-                  );
+                    ),
+                    Text(
+                      AppLocalizations.of(context)!.heroExplanation,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyLarge!
+                          .copyWith(fontFamily: 'Aileron'),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        OutlinedButton(
+                          onPressed: () {},
+                          child: Text(
+                            AppLocalizations.of(context)!.aboutUs,
+                          ),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor:
+                                Theme.of(context).colorScheme.onPrimary,
+                            backgroundColor: Theme.of(context).primaryColor,
+                          ),
+                          child: Text(AppLocalizations.of(context)!.priesSpace),
+                        )
+                      ],
+                    )
+                  ],
+                );
 
-                default:
-                  return Container();
-              }
-            },
-          ),
-        ],
+              default:
+                return Container();
+            }
+          },
+        ),
       ),
     );
   }
