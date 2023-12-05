@@ -16,8 +16,13 @@ class AhlFooter extends StatelessWidget {
             constraints: const BoxConstraints(maxHeight: 57),
             child: Image.asset(AhlAssets.logoFormTypoHorizontalColoredDark),
           ),
-          DefaultTextStyle(style: TextStyle(fontFamily: 'Aileron',), child: child) Wrap(
-            children: [],
+          const DefaultTextStyle(
+            style: TextStyle(
+              fontFamily: 'Aileron',
+            ),
+            child: Wrap(
+              children: [],
+            ),
           ),
         ],
       ),
