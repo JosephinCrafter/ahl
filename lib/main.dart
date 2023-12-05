@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'src/app.dart';
@@ -6,6 +5,9 @@ import 'src/settings/settings_controller.dart';
 import 'src/settings/settings_service.dart';
 
 void main() async {
+  // ensure flutter is initialized
+  WidgetsFlutterBinding.ensureInitialized();
+
   // Set up the SettingsController, which will glue user settings to multiple
   // Flutter Widgets.
   final settingsController = SettingsController(SettingsService());
@@ -18,5 +20,7 @@ void main() async {
   // SettingsController for changes, then passes it further down to the
   // SettingsView.
 
-  runApp(MyApp(settingsController: settingsController));
+  runApp(
+    MyApp(settingsController: settingsController),
+  );
 }

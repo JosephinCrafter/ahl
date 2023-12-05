@@ -18,6 +18,7 @@ class AppTheme {
       secondaryContainer: yellowLight,
       background: yellowLight,
     ),
+    textTheme: textTheme,
     useMaterial3: true,
   );
 
@@ -131,6 +132,15 @@ class AppTheme {
     color: onBackground,
   );
 
+  static const TextStyle bodySmall = TextStyle(
+    fontFamily: 'Aileron',
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0.25,
+    color: onBackground,
+  );
+
   static const TextStyle label = TextStyle(
     fontFamily: 'Aileron',
     fontSize: 12,
@@ -141,4 +151,20 @@ class AppTheme {
   );
 
   // static TextTheme textTheme = Typography.material2021().copyWith();
+
+  static TextTheme get textTheme => Typography.blackMountainView.copyWith(
+        displayLarge: displayLarge,
+        displayMedium: displayMedium,
+        displaySmall: displaySmall,
+        headlineLarge: headlineLarge,
+        headlineSmall: headlineSmall,
+        headlineMedium: headlineMedium,
+        titleLarge: titleLarge,
+        titleMedium: titleMedium,
+        titleSmall: titleSmall,
+        bodyLarge: bodyLarge,
+        bodyMedium: bodyMedium,
+        bodySmall: bodySmall,
+        // labelLarge: label,
+      );
 }
