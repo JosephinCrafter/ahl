@@ -49,12 +49,16 @@ class HomePage extends StatelessWidget {
 
           // Here are placed all components that build the entire
           // HomePage
-          body: ListView(
+          body: Stack(
             children: [
+              ListView(
+                children: [
+                  const HeroHeaderView(),
+                  const WelcomingView(),
+                  const AhlFooter(),
+                ],
+              ),
               inConstructionPromotionalBar,
-              const HeroHeaderView(),
-              const WelcomingView(),
-              const AhlFooter(),
             ],
           ),
         );

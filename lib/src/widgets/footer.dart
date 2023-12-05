@@ -9,6 +9,11 @@ class AhlFooter extends StatelessWidget {
       color: theme.AppTheme.blueNight,
       padding: const EdgeInsets.symmetric(
           horizontal: Paddings.medium, vertical: Paddings.big),
+      child: Column(
+        children: [
+          Image.asset(AhlAssets.logoFormTypoHorizontalColored),
+        ],
+      ),
     );
   }
 }
