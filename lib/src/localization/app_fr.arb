@@ -31,5 +31,6 @@
   "@sister": {
     "description": "Denomination des Sœurs"
   },
-  "prior": "Prieure de la communauté"
+  "prior": "Prieure de la communauté",
+  "inConstructionPromotionalMessage": "Ce site internet est en construction."
 }
