@@ -10,8 +10,15 @@ class AhlFooter extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
           horizontal: Paddings.medium, vertical: Paddings.big),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset(AhlAssets.logoFormTypoHorizontalColored),
+          Container(
+            constraints: const BoxConstraints(maxHeight: 57),
+            child: Image.asset(AhlAssets.logoFormTypoHorizontalColoredDark),
+          ),
+          DefaultTextStyle(style: TextStyle(fontFamily: 'Aileron',), child: child) Wrap(
+            children: [],
+          ),
         ],
       ),
     );
