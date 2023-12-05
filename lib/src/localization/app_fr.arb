@@ -22,10 +22,14 @@
   "ourProjects": "Nos Projets",
   "news": "Actualités de la communauté",
   "makeDonation": "Nous soutenir",
-  "welcomingTitle": "Bienvenu",
-   "@welcomingTitle": {
+  "welcomingTitle": "Bienvenue!",
+  "@welcomingTitle": {
     "description": "The title of the welcoming message."
-   },
-   "welcomingBody": "Bienvenu sur le site des Soeurs Dominicaines Missionnaires de Notre Dame de la Délivrande, Madagascar, Saharoaloha.\nEn tant que Sœur Supérieure, je vous accueille chaleureusement pour partager notre histoire, notre mission et notre engagement envers la foi.\nUnissez-vous à nous dans la prière, en explorant ce site dédié à cultiver ensemble une vie spirituelle enrichissante."
-   
+  },
+  "welcomingBody": "Bienvenu sur le site des Soeurs Dominicaines Missionnaires de Notre Dame de la Délivrande, Madagascar, Saharoaloha.\n\nEn tant que Sœur Supérieure, je vous accueille chaleureusement pour partager notre histoire, notre mission et notre engagement envers la foi.\n\nUnissez-vous à nous dans la prière, en explorant ce site dédié à cultiver ensemble une vie spirituelle enrichissante.",
+  "sister": "Sœurs",
+  "@sister": {
+    "description": "Denomination des Sœurs"
+  },
+  "prior": "Prieure de la communauté"
 }

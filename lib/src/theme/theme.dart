@@ -16,6 +16,7 @@ class AppTheme {
       seedColor: greenOlive,
       secondary: yellowRelax,
       secondaryContainer: yellowLight,
+      background: yellowLight,
     ),
     useMaterial3: true,
   );

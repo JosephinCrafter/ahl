@@ -36,7 +36,7 @@ class AhlAppBar extends StatelessWidget implements PreferredSizeWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         switch (constraints.maxWidth) {
-          case <= ScreenSizes.mobile:
+          case <= ScreenSizes.tablet:
             // use the mobile appBar
             return Container(
               constraints: BoxConstraints.tight(

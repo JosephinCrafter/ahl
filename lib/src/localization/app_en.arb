@@ -26,6 +26,11 @@
    "@welcomingTitle": {
     "description": "The title of the welcoming message."
    },
-   "welcomingBody": "Welcome on the Dominican Missionary Sister of Our Delivrande Lady, Madagascar, Saharoaloha.\nEn tant que Sœur Supérieure, je vous accueille chaleureusement pour partager notre histoire, notre mission et notre engagement envers la foi.\nUnissez-vous à nous dans la prière, en explorant ce site dédié à cultiver ensemble une vie spirituelle enrichissante."
+   "welcomingBody": "Welcome on the Dominican Missionary Sister of Our Delivrande Lady, Madagascar, Saharoaloha.\nEn tant que Sœur Supérieure, je vous accueille chaleureusement pour partager notre histoire, notre mission et notre engagement envers la foi.\nUnissez-vous à nous dans la prière, en explorant ce site dédié à cultiver ensemble une vie spirituelle enrichissante.",
+   "sister": "Sister",
+   "@sister": {
+    "description": "Denomination fo the sisters"
+   }
+   ,"prior":"Prioress of the community"
    
 }

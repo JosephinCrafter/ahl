@@ -1,7 +1,8 @@
 part of '../ahl_barrel.dart';
 
 class BorderSizes {
-  static const double circularBorderSize = 30;
+  static const double big = 30;
+  static const double medium = 26;
 }
 
 class Margins {

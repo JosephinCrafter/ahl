@@ -99,7 +99,7 @@ class HeroImageView extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: isWithBorder
             ? BorderRadius.circular(
-                BorderSizes.circularBorderSize,
+                BorderSizes.big,
               )
             : null,
         image: DecorationImage(
