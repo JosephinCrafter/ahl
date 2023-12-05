@@ -13,7 +13,7 @@ class WelcomingView extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(
         Margins.mobileMargin,
-      ),
+      ).copyWith(bottom: 125),
       child: const _WelcomingContent(),
     );
   }

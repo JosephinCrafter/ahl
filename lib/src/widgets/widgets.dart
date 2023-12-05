@@ -11,3 +11,5 @@ part 'app_bar.dart';
 part 'logo.dart';
 part 'drawer.dart';
 part 'actions.dart';
+part 'promotion_bar.dart';
+part 'footer.dart';

@@ -13,6 +13,7 @@ class AhlAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.ending,
     this.crossAxisAlignment,
     this.padding,
+    this.bottomBar,
   }) : _preferredSize = preferredSize ??
             const Size.fromHeight(
               Sizes.appBarSize,
@@ -26,6 +27,7 @@ class AhlAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color? backgroundColor;
   final CrossAxisAlignment? crossAxisAlignment;
   final EdgeInsetsGeometry? padding;
+  final Widget? bottomBar;
 
   @override
   Widget build(BuildContext context) {
@@ -48,19 +50,24 @@ class AhlAppBar extends StatelessWidget implements PreferredSizeWidget {
                   const EdgeInsets.all(
                     Paddings.appBarPadding,
                   ),
-              child: Row(
-                textBaseline: (crossAxisAlignment != null)
-                    ? (crossAxisAlignment == CrossAxisAlignment.baseline)
-                        ? TextBaseline.ideographic
-                        : null
-                    : TextBaseline.alphabetic,
-                crossAxisAlignment:
-                    crossAxisAlignment ?? CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
                 children: [
-                  title,
-                  ...actions,
-                  ending ?? const AhlMenuButton(),
+                  Row(
+                    textBaseline: (crossAxisAlignment != null)
+                        ? (crossAxisAlignment == CrossAxisAlignment.baseline)
+                            ? TextBaseline.ideographic
+                            : null
+                        : TextBaseline.alphabetic,
+                    crossAxisAlignment:
+                        crossAxisAlignment ?? CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      title,
+                      ...actions,
+                      ending ?? const AhlMenuButton(),
+                    ],
+                  ),
+                  bottomBar ?? const SizedBox.shrink(),
                 ],
               ),
             );
@@ -76,18 +83,23 @@ class AhlAppBar extends StatelessWidget implements PreferredSizeWidget {
                   const EdgeInsets.all(
                     Paddings.medium,
                   ),
-              child: Row(
-                textBaseline: (crossAxisAlignment != null)
-                    ? (crossAxisAlignment == CrossAxisAlignment.baseline)
-                        ? TextBaseline.ideographic
-                        : null
-                    : TextBaseline.ideographic,
-                crossAxisAlignment:
-                    crossAxisAlignment ?? CrossAxisAlignment.baseline,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
                 children: [
-                  title,
-                  ...actions,
+                  Row(
+                    textBaseline: (crossAxisAlignment != null)
+                        ? (crossAxisAlignment == CrossAxisAlignment.baseline)
+                            ? TextBaseline.ideographic
+                            : null
+                        : TextBaseline.ideographic,
+                    crossAxisAlignment:
+                        crossAxisAlignment ?? CrossAxisAlignment.baseline,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      title,
+                      ...actions,
+                    ],
+                  ),
+                  bottomBar ?? const SizedBox.shrink(),
                 ],
               ),
             );
