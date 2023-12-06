@@ -70,7 +70,7 @@ class DrawerFooter extends StatelessWidget {
       child: Container(
         constraints: const BoxConstraints.expand(height: 50),
         alignment: Alignment.center,
-        decoration: const BoxDecoration(color: theme.AppTheme.greenOlive),
+        decoration: const BoxDecoration(color: theme.AhlTheme.greenOlive),
         child: Text(
           'N.D.D MADAGASCAR 2023',
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(

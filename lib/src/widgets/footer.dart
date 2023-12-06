@@ -6,7 +6,7 @@ class AhlFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: theme.AppTheme.blueNight,
+      color: theme.AhlTheme.blueNight,
       padding: const EdgeInsets.symmetric(
         horizontal: Paddings.medium,
         vertical: Paddings.big,

@@ -36,7 +36,7 @@ class _WelcomingContent extends StatelessWidget {
               margin: const EdgeInsets.only(top: Sizes.nddLogoSize / 2),
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: AppTheme.greenOlive.withOpacity(0.2),
+                color: AhlTheme.greenOlive.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(BorderSizes.medium),
               ),
               child: Column(
@@ -117,11 +117,11 @@ class Signature extends StatelessWidget {
     return RichText(
       text: TextSpan(
           text: '${AppLocalizations.of(context)!.sister} Michelle Marie, o.p',
-          style: Theme.of(context).textTheme.labelLarge,
+          style: AhlTheme.name,
           children: [
             TextSpan(
               text: '\n${AppLocalizations.of(context)!.prior}',
-              style: Theme.of(context).textTheme.labelMedium,
+              style: AhlTheme.peopleTitle,
             ),
           ]),
     );

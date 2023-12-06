@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AppTheme {
-  AppTheme._();
+class AhlTheme {
+  AhlTheme._();
 
   static const Color greenOlive = Color(0xFF728C6D);
   static const Color yellowRelax = Color(0xFFFFD166);
@@ -148,6 +148,24 @@ class AppTheme {
     fontStyle: FontStyle.normal,
     letterSpacing: 0,
     color: onSurface,
+  );
+
+  static const TextStyle name = TextStyle(
+    fontFamily: 'Aileron',
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.italic,
+    letterSpacing: 0,
+    color: onSurface,
+  );
+
+  static const TextStyle peopleTitle = TextStyle(
+    fontFamily: 'Aileron',
+    fontSize: 10,
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.italic,
+    letterSpacing: 0,
+    color: Color(0xFF4d4d4d),
   );
 
   // static TextTheme textTheme = Typography.material2021().copyWith();

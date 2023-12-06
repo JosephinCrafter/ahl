@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          supportedLocales: AppLocalizations.supportedLocales,
+          supportedLocales: const [Locale('fr', 'FR')],
 
           // Use AppLocalizations to configure the correct application title
           // depending on the user's locale.
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
           // Define a light and dark color theme. Then, read the user's
           // preferred ThemeMode (light, dark, or system default) from the
           // SettingsController to display the correct theme.
-          theme: AppTheme.lightTheme,
+          theme: AhlTheme.lightTheme,
           darkTheme: ThemeData.dark(
             useMaterial3: true,
           ),
