@@ -34,6 +34,7 @@ class _PromotionBarState extends State<PromotionBar> {
             color: widget.backgroundColor,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 widget.child,
                 IconButton(

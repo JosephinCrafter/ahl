@@ -8,7 +8,9 @@ class AhlFooter extends StatelessWidget {
     return Container(
       color: theme.AppTheme.blueNight,
       padding: const EdgeInsets.symmetric(
-          horizontal: Paddings.medium, vertical: Paddings.big),
+        horizontal: Paddings.medium,
+        vertical: Paddings.big,
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

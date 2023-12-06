@@ -52,10 +52,10 @@ class HomePage extends StatelessWidget {
           body: Stack(
             children: [
               ListView(
-                children: [
-                  const HeroHeaderView(),
-                  const WelcomingView(),
-                  const AhlFooter(),
+                children: const [
+                  HeroHeaderView(),
+                  WelcomingView(),
+                  AhlFooter(),
                 ],
               ),
               inConstructionPromotionalBar,
