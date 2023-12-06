@@ -69,9 +69,11 @@ Widget inConstructionPromotionalBar = Builder(
     return PromotionBar(
       backgroundColor: Theme.of(context).colorScheme.tertiaryContainer,
       child: RichText(
+        textAlign: TextAlign.center,
         text: TextSpan(
           children: [
             WidgetSpan(
+              alignment: PlaceholderAlignment.middle,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: Paddings.small),
                 child: Icon(
