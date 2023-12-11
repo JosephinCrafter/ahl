@@ -2,5 +2,8 @@
     "cSpell.words": [
         "t'écoute"
     ],
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    "cSpell.enableFiletypes": [
+        "!json"
+    ]
 }
