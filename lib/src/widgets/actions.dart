@@ -1,5 +1,15 @@
 part of 'widgets.dart';
 
+enum Actions {
+  aboutUs,
+  home,
+  news,
+  ourProjects,
+  prayers,
+  makeDonation,
+  contact,
+}
+
 /// A short hand to get website tabs.
 ///
 /// The website tabs like home, prayers, and over tabs are called action. They
@@ -24,6 +34,8 @@ class ActionsLists {
       AppLocalizations.of(context)!.news: null,
       AppLocalizations.of(context)!.ourProjects: null,
       AppLocalizations.of(context)!.prayers: null,
+      AppLocalizations.of(context)!.makeDonation: null,
+      AppLocalizations.of(context)!.contact: null,
     };
 
     return actions;
