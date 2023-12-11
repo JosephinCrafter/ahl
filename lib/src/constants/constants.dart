@@ -21,10 +21,22 @@ class ScreenSizes {
 }
 
 class Paddings {
+  /// 45 px
+  static const double huge = 45;
+
+  /// 30 px
   static const double big = 30;
+
+  /// 27 px
   static const double drawerAppBarPadding = 27;
+
+  /// 8 px
   static const double appBarPadding = 8;
+
+  /// 15 px
   static const double listSeparator = 15;
+
+  /// 21 px
   static const double actionSeparator = 21;
 
   /// A padding of 15 px

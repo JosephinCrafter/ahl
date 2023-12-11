@@ -27,14 +27,14 @@
   "@welcomingTitle": {
     "description": "The title of the welcoming message."
   },
-  "welcomingBody": "Welcome on the Dominican Missionary Sister of Our Delivrande Lady, Madagascar, Saharoaloha.\nEn tant que Sœur Supérieure, je vous accueille chaleureusement pour partager notre histoire, notre mission et notre engagement envers la foi.\nUnissez-vous à nous dans la prière, en explorant ce site dédié à cultiver ensemble une vie spirituelle enrichissante.",
+  "welcomingBody": "Welcome on the Dominican Missionary Sister of Our Délivrande Lady, Madagascar, Saharoaloha.\nEn tant que Sœur Supérieure, je vous accueille chaleureusement pour partager notre histoire, notre mission et notre engagement envers la foi.\nUnissez-vous à nous dans la prière, en explorant ce site dédié à cultiver ensemble une vie spirituelle enrichissante.",
   "sister": "Sister",
   "@sister": {
     "description": "Denomination fo the sisters"
   },
-  "sisterDenomination": "Dominicans Missionnies Sisters Of Our Lady of Délivrande",
+  "sisterDenomination": "Dominicans Missionaries Sisters Of Our Lady of Délivrande",
   "@sisterDenomination": {
-    "description": "Text qui est utiliser dans le footer comme signiture du site internet"
+    "description": "The text that is used as Signature for the website"
   },
   "prior": "Prioress of the community",
   "inConstructionPromotionalMessage": "This Website is under construction."

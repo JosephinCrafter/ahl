@@ -4,7 +4,6 @@ import 'package:ahl/src/home/welcoming/welcoming.dart';
 import 'package:ahl/src/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
-
 /// Home page
 
 class HomePage extends StatelessWidget {
@@ -54,6 +53,7 @@ class HomePage extends StatelessWidget {
                 children: const [
                   HeroHeaderView(),
                   WelcomingView(),
+                  NewsLetterPrompt(),
                   AhlFooter(),
                 ],
               ),

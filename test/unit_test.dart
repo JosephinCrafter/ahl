@@ -28,6 +28,8 @@ void main() {
         'get action and rootNames from the static action list',
         () {
           var actions = ActionsLists.actions;
+
+          expect(actions.isNotEmpty, true);
         },
       );
     },

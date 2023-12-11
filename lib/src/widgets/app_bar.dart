@@ -31,10 +31,6 @@ class AhlAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScaffoldState scaffoldState = Scaffold.of(context);
-
-    bool scaffoldHasDrawer = scaffoldState.hasEndDrawer;
-
     return LayoutBuilder(
       builder: (context, constraints) {
         switch (constraints.maxWidth) {

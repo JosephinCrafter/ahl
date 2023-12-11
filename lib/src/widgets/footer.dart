@@ -51,7 +51,7 @@ class AhlFooter extends StatelessWidget {
             ),
             child: Image.asset(AhlAssets.logoFormTypoHorizontalColoredDark),
           ),
-          Row(children: []),
+          const Row(children: []),
 
           // Footer actions buttons.
           //
