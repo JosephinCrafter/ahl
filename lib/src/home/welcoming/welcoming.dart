@@ -30,7 +30,7 @@ class _WelcomingContent extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: Container(
-              constraints: const BoxConstraints(maxWidth: 420),
+              constraints: const BoxConstraints(minWidth: 342, maxWidth: 420),
               padding: const EdgeInsets.all(Paddings.big)
                   .copyWith(top: Paddings.big + Sizes.nddLogoSize / 2),
               margin: const EdgeInsets.only(top: Sizes.nddLogoSize / 2),
@@ -80,7 +80,7 @@ class _WelcomingContent extends StatelessWidget {
           Positioned(
             bottom: -50,
             left: constraints.maxWidth / 2 + 15,
-            child: Container(
+            child: SizedBox(
               width: 175,
               child: Image.asset(
                 AhlAssets.priorAvatar,
