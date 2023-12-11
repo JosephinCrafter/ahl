@@ -46,7 +46,7 @@ class AhlDrawer extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ...ActionsLists.actions,
+                      ...ActionsLists.actionsWidgets,
                     ],
                   ),
                 ),

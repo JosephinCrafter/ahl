@@ -74,7 +74,7 @@ class AhlAppBar extends StatelessWidget implements PreferredSizeWidget {
           default:
             // Use the default web appBar
             return Container(
-              constraints: BoxConstraints.loose(
+              constraints: BoxConstraints.tight(
                 _preferredSize,
               ),
               color: backgroundColor ??
