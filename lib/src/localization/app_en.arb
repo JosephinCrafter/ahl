@@ -22,6 +22,7 @@
   "ourProjects": "Our Projects",
   "news": "News",
   "makeDonation": "Support us",
+  "contact": "Contact us",
   "welcomingTitle": "Welcome",
   "@welcomingTitle": {
     "description": "The title of the welcoming message."
@@ -30,6 +31,10 @@
   "sister": "Sister",
   "@sister": {
     "description": "Denomination fo the sisters"
+  },
+  "sisterDenomination": "Dominicans Missionnies Sisters Of Our Lady of Délivrande",
+  "@sisterDenomination": {
+    "description": "Text qui est utiliser dans le footer comme signiture du site internet"
   },
   "prior": "Prioress of the community",
   "inConstructionPromotionalMessage": "This Website is under construction."
