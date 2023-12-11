@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AhlTheme {
   AhlTheme._();
@@ -9,6 +8,7 @@ class AhlTheme {
   static const Color yellowLight = Color(0xFFFFF9E6);
   static const Color blackCharcoal = Color(0xFF282828);
   static const Color blueNight = Color(0xFF36454F);
+  static const Color darkNight = Color(0xFF1A202C);
 
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
