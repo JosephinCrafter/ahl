@@ -26,7 +26,13 @@ class Paddings {
   static const double appBarPadding = 8;
   static const double listSeparator = 15;
   static const double actionSeparator = 21;
+
+  /// A padding of 15 px
   static const double medium = 15;
+
+  /// A padding of 7.5 px.
+  ///
+  /// It is computed as the half of medium.
   static const double small = medium / 2;
 }
 
