@@ -58,16 +58,25 @@ class _NewsLetterPromptState extends State<NewsLetterPrompt> {
       ),
     );
   }
+}
 
-  Axis evaluateAxis(BoxConstraints constraints) {
-    Axis axis;
+/// Return the right axis based on the the constraints and threshold.
+///
+/// If the constraints.maxWidth is upper than the threshold,
+/// it return [Axis.horizontal]. It return [Axis.vertical] in the else case.
+Axis evaluateAxis(
+  /// Constraints to evaluate with.
+  BoxConstraints constraints, {
+  /// The minimum required threshold to maintain the larger than state
+  double threshold = ScreenSizes.mobile,
+}) {
+  Axis axis;
 
-    if (constraints.maxWidth >= ScreenSizes.mobile) {
-      axis = Axis.horizontal;
-    } else {
-      axis = Axis.vertical;
-    }
-
-    return axis;
+  if (constraints.maxWidth >= threshold) {
+    axis = Axis.horizontal;
+  } else {
+    axis = Axis.vertical;
   }
+
+  return axis;
 }
