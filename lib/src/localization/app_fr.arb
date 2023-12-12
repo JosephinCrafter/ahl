@@ -29,13 +29,23 @@
   },
   "welcomingBody": "Bienvenu sur le site des Soeurs Dominicaines Missionnaires de Notre Dame de la Délivrande, Madagascar, Saharoaloha.\n\nEn tant que Sœur Supérieure, je vous accueille chaleureusement pour partager notre histoire, notre mission et notre engagement envers la foi.\n\nUnissez-vous à nous dans la prière, en explorant ce site dédié à cultiver ensemble une vie spirituelle enrichissante.",
   "sister": "Sœurs",
-  "sisterDenomination":"Sœurs Dominicaines Missionnaires de Notre Dame de la Délivrande",
-  "@sisterDenomination":{
-    "description":"Text qui est utiliser dans le footer comme signiture du site internet"
+  "sisterDenomination": "Sœurs Dominicaines Missionnaires de Notre Dame de la Délivrande",
+  "@sisterDenomination": {
+    "description": "Text qui est utiliser dans le footer comme signiture du site internet"
   },
   "@sister": {
     "description": "Denomination des Sœurs"
   },
   "prior": "Prieure de la communauté",
-  "inConstructionPromotionalMessage": "Ce site internet est en construction."
+  "inConstructionPromotionalMessage": "Ce site internet est en construction.",
+  "invitingNewsLetter": "Pour rester informer",
+  "@invitingNewsLetter": {
+    "description": "Sous titre dans le widget d'invitation à la news letter"
+  },
+  "newsLetterWidgetTitle": "Abonnez-vous à la newsletter",
+  "@newsLetterWidgetTitle": {
+    "description": "Title dans le widget d'invitation à la news letter"
+  },
+  "exampleMail": "votrenom@example.com",
+  "register": "S'inscrire"
 }
