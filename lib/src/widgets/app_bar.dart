@@ -31,29 +31,39 @@ class AhlAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// background color of the app bar
+    var color =
+        backgroundColor ?? Theme.of(context).colorScheme.secondaryContainer;
+
+    /// constraints
+    BoxConstraints computedConstraint = BoxConstraints.tight(
+      _preferredSize,
+    );
+
+    /// Padddings
+    EdgeInsetsGeometry computedPadding = padding ??
+        const EdgeInsets.all(
+          Paddings.appBarPadding,
+        );
+
+    TextBaseline? computedTextBaseLine = (crossAxisAlignment != null)
+        ? (crossAxisAlignment == CrossAxisAlignment.baseline)
+            ? TextBaseline.ideographic
+            : null
+        : TextBaseline.alphabetic;
     return LayoutBuilder(
       builder: (context, constraints) {
         switch (constraints.maxWidth) {
           case <= ScreenSizes.tablet:
             // use the mobile appBar
             return Container(
-              constraints: BoxConstraints.tight(
-                _preferredSize,
-              ),
-              color: backgroundColor ??
-                  Theme.of(context).colorScheme.secondaryContainer,
-              padding: padding ??
-                  const EdgeInsets.all(
-                    Paddings.appBarPadding,
-                  ),
+              constraints: computedConstraint,
+              color: color,
+              padding: computedPadding,
               child: Column(
                 children: [
                   Row(
-                    textBaseline: (crossAxisAlignment != null)
-                        ? (crossAxisAlignment == CrossAxisAlignment.baseline)
-                            ? TextBaseline.ideographic
-                            : null
-                        : TextBaseline.alphabetic,
+                    textBaseline: computedTextBaseLine,
                     crossAxisAlignment:
                         crossAxisAlignment ?? CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -70,23 +80,13 @@ class AhlAppBar extends StatelessWidget implements PreferredSizeWidget {
           default:
             // Use the default web appBar
             return Container(
-              constraints: BoxConstraints.tight(
-                _preferredSize,
-              ),
-              color: backgroundColor ??
-                  Theme.of(context).colorScheme.secondaryContainer,
-              padding: padding ??
-                  const EdgeInsets.all(
-                    Paddings.medium,
-                  ),
+              constraints: computedConstraint,
+              color: color,
+              padding: computedPadding,
               child: Column(
                 children: [
                   Row(
-                    textBaseline: (crossAxisAlignment != null)
-                        ? (crossAxisAlignment == CrossAxisAlignment.baseline)
-                            ? TextBaseline.ideographic
-                            : null
-                        : TextBaseline.ideographic,
+                    textBaseline: computedTextBaseLine,
                     crossAxisAlignment:
                         crossAxisAlignment ?? CrossAxisAlignment.baseline,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
