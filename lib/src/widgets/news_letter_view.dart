@@ -16,14 +16,15 @@ class _NewsLetterPromptState extends State<NewsLetterPrompt> {
       padding: const EdgeInsets.all(Paddings.huge),
       color: theme.AhlTheme.yellowRelax,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Pour rester informer",
+            AppLocalizations.of(context)!.invitingNewsLetter,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           Text(
-            "Abonnez-vous à la newsletter",
+            AppLocalizations.of(context)!.newsLetterWidgetTitle,
             style: Theme.of(context).textTheme.displayMedium!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -33,10 +34,10 @@ class _NewsLetterPromptState extends State<NewsLetterPrompt> {
               vertical: Paddings.big,
             ),
             child: TextField(
-              decoration: const InputDecoration(
-                label: Text('email'),
-                hintText: 'yourname@example.com',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                label: const Text('e-mail'),
+                hintText: AppLocalizations.of(context)!.exampleMail,
+                border: const OutlineInputBorder(),
               ),
               controller: emailInputController,
             ),
@@ -49,12 +50,24 @@ class _NewsLetterPromptState extends State<NewsLetterPrompt> {
             onPressed: () {
               //todo: implement with firebase cloud messaging
             },
-            child: const Text(
-              "S'inscrire",
+            child: Text(
+              AppLocalizations.of(context)!.register,
             ),
           ),
         ],
       ),
     );
+  }
+
+  Axis evaluateAxis(BoxConstraints constraints) {
+    Axis axis;
+
+    if (constraints.maxWidth >= ScreenSizes.mobile) {
+      axis = Axis.horizontal;
+    } else {
+      axis = Axis.vertical;
+    }
+
+    return axis;
   }
 }
