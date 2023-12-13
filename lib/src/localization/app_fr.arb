@@ -38,7 +38,7 @@
   },
   "prior": "Prieure de la communauté",
   "inConstructionPromotionalMessage": "Ce site internet est en construction.",
-  "invitingNewsLetter": "Pour rester informer",
+  "invitingNewsLetter": "Pour rester informé",
   "@invitingNewsLetter": {
     "description": "Sous titre dans le widget d'invitation à la news letter"
   },

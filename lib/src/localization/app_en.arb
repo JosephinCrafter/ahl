@@ -37,5 +37,15 @@
     "description": "The text that is used as Signature for the website"
   },
   "prior": "Prioress of the community",
-  "inConstructionPromotionalMessage": "This Website is under construction."
+  "inConstructionPromotionalMessage": "This Website is under construction.",
+  "invitingNewsLetter": "To stay informed",
+  "@invitingNewsLetter": {
+    "description": "Sous titre dans le widget d'invitation à la news letter"
+  },
+  "newsLetterWidgetTitle": "Register to Ahl newsletter",
+  "@newsLetterWidgetTitle": {
+    "description": "Title dans le widget d'invitation à la news letter"
+  },
+  "exampleMail": "yourname@example.com",
+  "register": "Register"
 }
