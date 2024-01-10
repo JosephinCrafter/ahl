@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'firebase_options.dart';
 
 import 'src/app.dart';
 import 'src/settings/settings_controller.dart';
@@ -9,7 +9,7 @@ import 'src/settings/settings_service.dart';
 
 void main() async {
   // ensure flutter is initialized
-  WidgetsFlutterBinding.ensureInitialized();
+  //WidgetsFlutterBinding.ensureInitialized();
 
   // Set up the SettingsController, which will glue user settings to multiple
   // Flutter Widgets.
@@ -25,9 +25,9 @@ void main() async {
 
   // Firebase initialization with the default options
   // object exported by the configuration file.
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
 
   runApp(
     MyApp(settingsController: settingsController),
