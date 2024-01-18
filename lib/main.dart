@@ -1,10 +1,16 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'firebase_options.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 import 'src/app.dart';
 import 'src/settings/settings_controller.dart';
 import 'src/settings/settings_service.dart';
 
 void main() async {
+  // Make the app url based
+  usePathUrlStrategy();
+
   // ensure flutter is initialized
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -19,6 +25,11 @@ void main() async {
   // Run the app and pass in the SettingsController. The app listens to the
   // SettingsController for changes, then passes it further down to the
   // SettingsView.
+
+  // here we go with firebase setup
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(
     MyApp(settingsController: settingsController),
