@@ -1,4 +1,4 @@
-part of 'widgets.dart';
+part of '../newsletter.dart';
 
 class NewsLetterPrompt extends StatefulWidget {
   const NewsLetterPrompt({super.key});

@@ -1,3 +1,4 @@
+import 'package:ahl/src/article_view/view/article_view.dart';
 import 'package:ahl/src/home/homepage.dart';
 import 'package:ahl/src/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -74,6 +75,8 @@ class MyApp extends StatelessWidget {
                     return const SampleItemDetailsView();
                   case HomePage.routeName:
                     return const HomePage();
+                  case ArticleView.routeName:
+                    return ArticleView(args: routeSettings.arguments,);
                   default:
                     return const HomePage();
                 }
