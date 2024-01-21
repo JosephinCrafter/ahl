@@ -13,5 +13,4 @@ part 'drawer.dart';
 part 'actions.dart';
 part 'promotion_bar.dart';
 part 'footer.dart';
-part 'news_letter_view.dart';
 part 'prayers_request.dart';

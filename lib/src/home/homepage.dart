@@ -1,6 +1,7 @@
 import 'package:ahl/src/ahl_barrel.dart';
 import 'package:ahl/src/home/hero_header/hero_header.dart';
 import 'package:ahl/src/home/welcoming/welcoming.dart';
+import 'package:ahl/src/newsletter/newsletter.dart';
 import 'package:ahl/src/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
