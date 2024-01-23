@@ -8,6 +8,28 @@ class NewsLetterPrompt extends StatefulWidget {
 }
 
 class _NewsLetterPromptState extends State<NewsLetterPrompt> {
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider<NewsletterSubscriptionBloc>(
+      create: (context) => NewsletterSubscriptionBloc(
+        repo: NewsletterSubscriptionRepository(
+          database: firestore,
+        ),
+      ),
+      // Setup bloc providing
+      child: const NewsletterPromptView(),
+    );
+  }
+}
+
+class NewsletterPromptView extends StatefulWidget {
+  const NewsletterPromptView({super.key});
+
+  @override
+  State<NewsletterPromptView> createState() => _NewsletterPromptViewState();
+}
+
+class _NewsletterPromptViewState extends State<NewsletterPromptView> {
   final TextEditingController emailInputController = TextEditingController();
 
   @override
@@ -33,13 +55,17 @@ class _NewsLetterPromptState extends State<NewsLetterPrompt> {
             padding: const EdgeInsets.symmetric(
               vertical: Paddings.big,
             ),
-            child: TextField(
-              decoration: InputDecoration(
-                label: const Text('e-mail'),
-                hintText: AppLocalizations.of(context)!.exampleMail,
-                border: const OutlineInputBorder(),
+            child: BlocBuilder<NewsletterSubscriptionBloc,
+                NewsletterSubscriptionState>(
+              builder: (context, state) => TextField(
+                controller: emailInputController,
+                decoration: InputDecoration(
+                  label: const Text('e-mail'),
+                  hintText: AppLocalizations.of(context)!.exampleMail,
+                  border: const OutlineInputBorder(),
+                  error: state.hasError ? Text('${state.error!}') : null,
+                ),
               ),
-              controller: emailInputController,
             ),
           ),
           ElevatedButton(
@@ -48,7 +74,11 @@ class _NewsLetterPromptState extends State<NewsLetterPrompt> {
               foregroundColor: Theme.of(context).colorScheme.onPrimary,
             ),
             onPressed: () {
-              //todo: implement with firebase cloud messaging
+              context.read<NewsletterSubscriptionBloc>().add(
+                    SubscriptionRequestEvent(
+                      email: emailInputController.text,
+                    ),
+                  );
             },
             child: Text(
               AppLocalizations.of(context)!.register,

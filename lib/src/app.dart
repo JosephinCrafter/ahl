@@ -14,9 +14,11 @@ class MyApp extends StatelessWidget {
   const MyApp({
     super.key,
     required this.settingsController,
+    this.home,
   });
 
   final SettingsController settingsController;
+  final Widget? home;
 
   @override
   Widget build(BuildContext context) {
@@ -76,9 +78,11 @@ class MyApp extends StatelessWidget {
                   case HomePage.routeName:
                     return const HomePage();
                   case ArticleView.routeName:
-                    return ArticleView(args: routeSettings.arguments,);
+                    return ArticleView(
+                      args: routeSettings.arguments,
+                    );
                   default:
-                    return const HomePage();
+                    return home ?? const HomePage();
                 }
               },
             );
