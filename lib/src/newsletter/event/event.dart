@@ -20,3 +20,13 @@ class InitializeRequestEvent extends NewsletterSubscriptionEvent {
 
 /// Closing the Subscription mechanism will re initialize it.
 typedef CloseRequestEvent = InitializeRequestEvent;
+
+class LoadingEvent extends NewsletterSubscriptionEvent {}
+
+class SuccessEvent extends NewsletterSubscriptionEvent {}
+
+class ErrorEvent extends NewsletterSubscriptionEvent {
+  ErrorEvent({this.error = "Unknown Error"});
+
+  final Object? error;
+}

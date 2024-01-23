@@ -27,7 +27,9 @@ void main() {
       blocTest<NewsletterSubscriptionBloc, NewsletterSubscriptionState>(
         'emits initial status when freshly created',
         build: () => NewsletterSubscriptionBloc(repo: mockRepo),
-        act: (bloc) => bloc.add(InitializeRequestEvent()),
+        act: (bloc) => bloc
+          ..add(InitializeRequestEvent())
+          ..add(InitializeRequestEvent()),
         expect: () => [
           NewsletterSubscriptionState.initial(),
         ],
@@ -36,16 +38,24 @@ void main() {
       blocTest<NewsletterSubscriptionBloc, NewsletterSubscriptionState>(
         'emits loading when added an event email',
         build: () => NewsletterSubscriptionBloc(repo: mockRepo),
-        act: (bloc) => bloc.add(
-          SubscriptionRequestEvent(
-            email: exampleEmail,
-          ),
-        ),
+        act: (bloc)async  {
+          bloc.add(
+            SubscriptionRequestEvent(
+              email: exampleEmail,
+            ),
+          );
+          await Future.delayed( const Duration(milliseconds: 300));
+        },
         expect: () => [
           const NewsletterSubscriptionState(
               email: exampleEmail,
               status: NewsletterSubscriptionStatus.loading,
               error: null),
+          const NewsletterSubscriptionState(
+            email: exampleEmail,
+            status: NewsletterSubscriptionStatus.success,
+            error: null,
+          ),
         ],
       );
     },

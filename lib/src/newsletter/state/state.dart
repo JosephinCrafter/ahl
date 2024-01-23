@@ -45,4 +45,13 @@ final class NewsletterSubscriptionState extends Equatable {
   List<Object?> get props => [email, status, error];
 
   bool get hasError => error != null;
+
+  String? getError(BuildContext context) {
+    switch (error) {
+      case "Invalid Email":
+        return AppLocalizations.of(context)!.invalidEmail;
+      default:
+        return AppLocalizations.of(context)!.unknownError;
+    }
+  }
 }

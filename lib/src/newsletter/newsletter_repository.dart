@@ -10,8 +10,6 @@ class NewsletterSubscriptionRepository {
   final FirebaseFirestore _db;
 
   Stream<NewsletterSubscriptionStatus> get status async* {
-    await Future<void>.delayed(const Duration(seconds: 1));
-    yield NewsletterSubscriptionStatus.initial;
     yield* _controller.stream;
   }
 
@@ -22,7 +20,7 @@ class NewsletterSubscriptionRepository {
       };
 
   /// Handle initialization
-  Future<void> initialize() async {
+  void initialize() {
     _controller.add(NewsletterSubscriptionStatus.initial);
   }
 
@@ -30,11 +28,8 @@ class NewsletterSubscriptionRepository {
   Future<void> subscribe({
     required String email,
   }) async {
-    // put everything in a loading state
-    _controller.add(NewsletterSubscriptionStatus.loading);
-
     // Writes to firebase firestore document
-    await _db
+    return _db
         .collection(newsletterCollection)
         .doc(email)
         .set(
