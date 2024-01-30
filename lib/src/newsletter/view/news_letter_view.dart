@@ -10,15 +10,25 @@ class NewsLetterPrompt extends StatefulWidget {
 class _NewsLetterPromptState extends State<NewsLetterPrompt> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<NewsletterSubscriptionBloc>(
-      create: (context) => NewsletterSubscriptionBloc(
-        repo: NewsletterSubscriptionRepository(
-          database: firestore,
-        ),
-      ),
-      // Setup bloc providing
-      child: const NewsletterPromptView(),
-    );
+    return FutureBuilder(
+        future: firebaseApp,
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.done:
+              return BlocProvider<NewsletterSubscriptionBloc>(
+                create: (context) => NewsletterSubscriptionBloc(
+                  repo: NewsletterSubscriptionRepository(
+                    database: firestore,
+                  ),
+                ),
+                // Setup bloc providing
+                child: const NewsletterPromptView(),
+              );
+
+            default:
+              return const SizedBox.shrink();
+          }
+        },);
   }
 }
 

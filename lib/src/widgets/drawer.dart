@@ -33,15 +33,16 @@ class AhlDrawer extends StatelessWidget {
               ),
             ),
           ),
+
           // body of the drawer
           body: Stack(
             children: [
               SingleChildScrollView(
                 child: Container(
-                  constraints: const BoxConstraints(
-                    maxWidth: Sizes.menuButtonWidth,
-                    maxHeight: Sizes.menuButtonListHeight,
-                  ),
+                  // constraints: const BoxConstraints(
+                  //   maxWidth: Sizes.menuButtonWidth,
+                  //   maxHeight: Sizes.menuButtonListHeight,
+                  // ),
                   margin: const EdgeInsets.only(left: Paddings.medium),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,6 +50,26 @@ class AhlDrawer extends StatelessWidget {
                       ...ActionsLists.actionsWidgets,
                     ],
                   ),
+                ),
+              ),
+              Positioned(
+                bottom: 50,
+                child: Row(
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Intl.defaultLocale = 'fr_FR';
+
+                        Navigator.of(context)
+                            .pushReplacementNamed(HomePage.routeName);
+                      },
+                      child: const Text('Français'),
+                    ),
+                    const TextButton(
+                      onPressed: null,
+                      child: Text('English'),
+                    ),
+                  ],
                 ),
               ),
               const DrawerFooter(),

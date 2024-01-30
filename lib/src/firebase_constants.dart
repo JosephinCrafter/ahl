@@ -1,4 +1,6 @@
+import 'package:ahl/firebase_options.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 
 /// Email key in users document in firestore.
@@ -22,6 +24,11 @@ const int firestorePort = 46561;
 const int storagePort = 9199;
 const int authPort = 9099;
 const int hostingPort = 5000;
+
+/// Get firebase initialization
+Future<FirebaseApp> firebaseApp = Firebase.initializeApp( // doesn't await this allows the app to run without firebase
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
 /// Get the instance of firestore in the app.
 FirebaseFirestore get firestore {
