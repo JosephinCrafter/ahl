@@ -4,8 +4,6 @@ import 'package:ahl/src/article_view/model/article.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:ahl/firebase_options.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:firebase_storage_mocks/firebase_storage_mocks.dart';
 import 'package:mockito/mockito.dart';
@@ -88,7 +86,7 @@ void main() async {
       test(
         'Instantiate an article without argument',
         () {
-          Article article = Article();
+          Article article = const Article();
 
           var title = article.title;
           var releaseDate = article.releaseDate;

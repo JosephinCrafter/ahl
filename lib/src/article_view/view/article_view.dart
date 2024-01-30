@@ -20,7 +20,7 @@ class ArticleView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _args = args ??
+    final computedArgs = args ??
         ModalRoute.of(context)!.settings.arguments; // todo: as ArticleArgument
 
     return Scaffold(
@@ -28,7 +28,7 @@ class ArticleView extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Text('The navigation url is\n$_args'),
+            Text('The navigation url is\n$computedArgs'),
               ElevatedButton(
               onPressed: callback,
               child: const Text('Make cloud_firestore transactions'),

@@ -10,8 +10,9 @@ class NewsLetterPrompt extends StatefulWidget {
 class _NewsLetterPromptState extends State<NewsLetterPrompt> {
   @override
   Widget build(BuildContext context) {
+
     return FutureBuilder(
-        future: firebaseApp,
+        future: firebaseApp, // listen to firebaseApp initialization
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
