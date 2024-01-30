@@ -46,3 +46,5 @@ app.*.map.json
 
 # Pubspec lock
 pubspec.lock
+.firebase/hosting.YnVpbGRcd2Vi.cache
+.firebase/hosting.YnVpbGRcd2Vi.cache
