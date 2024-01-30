@@ -1,0 +1,32 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text>Space for diagram notes
+</help_text><element><id>UMLClass</id><coordinates><x>432</x><y>80</y><w>208</w><h>216</h></coordinates><panel_attributes>template=0: Object
+style=autoresize
+Article
+--
+string: title
+/Title of the article/
+
+string: date
+/Release date of the article/
+
+string: content
+/A markdown /
+
+List&lt;Map&lt;String, dynamic&gt;:relations
+--
+copyWith() -&gt; Article
+/Copy an article objects/
+
+isEmpty</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>344</y><w>216</w><h>144</h></coordinates><panel_attributes>template=0: Object
+style=autoresize
+Articles
+--
+
+--
+copyWith() -&gt; Article
+/Copy an article objects/
+
+getArticleOfTheMonth()
+/Return the highlight article of the month/
+
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

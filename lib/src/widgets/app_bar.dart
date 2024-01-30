@@ -53,52 +53,51 @@ class AhlAppBar extends StatelessWidget implements PreferredSizeWidget {
         : TextBaseline.alphabetic;
     return LayoutBuilder(
       builder: (context, constraints) {
-        switch (constraints.maxWidth) {
-          case <= ScreenSizes.tablet:
-            // use the mobile appBar
-            return Container(
-              constraints: computedConstraint,
-              color: color,
-              padding: computedPadding,
-              child: Column(
-                children: [
-                  Row(
-                    textBaseline: computedTextBaseLine,
-                    crossAxisAlignment:
-                        crossAxisAlignment ?? CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      title,
-                      ...actions,
-                      ending ?? const AhlMenuButton(),
-                    ],
-                  ),
-                  bottomBar ?? const SizedBox.shrink(),
-                ],
-              ),
-            );
-          default:
-            // Use the default web appBar
-            return Container(
-              constraints: computedConstraint,
-              color: color,
-              padding: computedPadding,
-              child: Column(
-                children: [
-                  Row(
-                    textBaseline: computedTextBaseLine,
-                    crossAxisAlignment:
-                        crossAxisAlignment ?? CrossAxisAlignment.baseline,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      title,
-                      ...actions,
-                    ],
-                  ),
-                  bottomBar ?? const SizedBox.shrink(),
-                ],
-              ),
-            );
+        if (constraints.maxWidth <= ScreenSizes.tablet) {
+          // use the mobile appBar
+          return Container(
+            constraints: computedConstraint,
+            color: color,
+            padding: computedPadding,
+            child: Column(
+              children: [
+                Row(
+                  textBaseline: computedTextBaseLine,
+                  crossAxisAlignment:
+                      crossAxisAlignment ?? CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    title,
+                    ...actions,
+                    ending ?? const AhlMenuButton(),
+                  ],
+                ),
+                bottomBar ?? const SizedBox.shrink(),
+              ],
+            ),
+          );
+        } else {
+          // Use the default web appBar
+          return Container(
+            constraints: computedConstraint,
+            color: color,
+            padding: computedPadding,
+            child: Column(
+              children: [
+                Row(
+                  textBaseline: computedTextBaseLine,
+                  crossAxisAlignment:
+                      crossAxisAlignment ?? CrossAxisAlignment.baseline,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    title,
+                    ...actions,
+                  ],
+                ),
+                bottomBar ?? const SizedBox.shrink(),
+              ],
+            ),
+          );
         }
       },
     );

@@ -171,6 +171,7 @@ class AhlTheme {
   // static TextTheme textTheme = Typography.material2021().copyWith();
 
   static TextTheme get textTheme => Typography.blackMountainView.copyWith(
+    
         displayLarge: displayLarge,
         displayMedium: displayMedium,
         displaySmall: displaySmall,
