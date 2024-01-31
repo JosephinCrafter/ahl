@@ -119,12 +119,14 @@ class ActionsLists {
       builder: (context) => Padding(
         padding: const EdgeInsets.symmetric(vertical: Paddings.small),
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed(ArticleView.routeName);
+          },
           child: Container(
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.symmetric(vertical: Paddings.medium),
             child: Text(
-              AppLocalizations.of(context)!.news,
+              AppLocalizations.of(context)!.articles,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     fontFamily: 'Aileron',
                     fontWeight: FontWeight.w900,
