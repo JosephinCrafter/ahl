@@ -7,7 +7,7 @@ import 'package:markdown_widget/markdown_widget.dart';
 import "../data/data.dart";
 
 class ArticleView extends StatelessWidget {
-  const ArticleView({super.key, this.args});
+  const ArticleView({super.key, this.args}); 
 
   static const String routeName = '/articles';
   final dynamic args;
