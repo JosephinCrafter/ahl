@@ -13,9 +13,10 @@ class HeroHeaderView extends StatelessWidget {
       builder: (context, constraints) {
         if (constraints.maxWidth <= ScreenSizes.tablet) {
           // HeroHeader fo mobile
-          return const MobileHeroHeader();
-        } else {
-          return const DefaultHeroHeader();
+          
+            return const MobileHeroHeader();
+          }else{
+            return const DefaultHeroHeader();
         }
       },
     );

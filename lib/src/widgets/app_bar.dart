@@ -31,6 +31,13 @@ class AhlAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    // make logo a button to home
+    Widget title = InkWell(
+      onTap: () => Navigator.of(context)
+          .pushNamedAndRemoveUntil(HomePage.routeName, (route) => false),
+      child: this.title,
+    );
+
     /// background color of the app bar
     var color =
         backgroundColor ?? Theme.of(context).colorScheme.secondaryContainer;

@@ -1,3 +1,4 @@
+import 'package:ahl/src/article_view/view/article_view.dart';
 import 'package:ahl/src/home/homepage.dart';
 import 'package:ahl/src/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +14,11 @@ class MyApp extends StatelessWidget {
   const MyApp({
     super.key,
     required this.settingsController,
+    this.home,
   });
 
   final SettingsController settingsController;
+  final Widget? home;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +30,8 @@ class MyApp extends StatelessWidget {
       listenable: settingsController,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
+          
+
           // Providing a restorationScopeId allows the Navigator built by the
           // MaterialApp to restore the navigation stack when a user leaves and
           // returns to the app after it has been killed while running in the
@@ -74,12 +79,17 @@ class MyApp extends StatelessWidget {
                     return const SampleItemDetailsView();
                   case HomePage.routeName:
                     return const HomePage();
+                  case ArticleView.routeName:
+                    return ArticleView(
+                      args: routeSettings.arguments,
+                    );
                   default:
-                    return const HomePage();
+                    return home ?? const HomePage();
                 }
               },
             );
           },
+
         );
       },
     );

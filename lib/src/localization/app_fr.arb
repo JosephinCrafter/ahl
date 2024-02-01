@@ -22,6 +22,7 @@
   "ourProjects": "Nos Projets",
   "news": "Actualités de la communauté",
   "makeDonation": "Nous soutenir",
+  "articles": "Articles",
   "contact": "Nous Contacter",
   "welcomingTitle": "Bienvenue!",
   "@welcomingTitle": {
@@ -47,5 +48,8 @@
     "description": "Title dans le widget d'invitation à la news letter"
   },
   "exampleMail": "votrenom@example.com",
-  "register": "S'inscrire"
+  "register": "S'inscrire",
+  "thanksForRegistering": "Merci pour votre abonnement",
+  "invalidEmail": "Email non valide.",
+  "unknownError": "Erreur inconnue, Verifier votre connexion internet"
 }
