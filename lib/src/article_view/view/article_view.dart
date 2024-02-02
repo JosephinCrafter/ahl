@@ -1,4 +1,5 @@
 import 'package:ahl/src/ahl_barrel.dart';
+import 'package:ahl/src/firebase_constants.dart';
 import 'package:ahl/src/widgets/widgets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,7 @@ import 'package:markdown_widget/markdown_widget.dart';
 import "../data/data.dart";
 
 class ArticleView extends StatelessWidget {
-  const ArticleView({super.key, this.args}); 
+  const ArticleView({super.key, this.args});
 
   static const String routeName = '/articles';
   final dynamic args;
@@ -15,7 +16,7 @@ class ArticleView extends StatelessWidget {
   final String articleTitle = 'leves_toi_et_marches';
 
   void callback() async {
-    ArticleHelper helper = ArticleHelper();
+    ArticlesRepository helper = ArticlesRepository(firestoreInstance: firestore);
     if (kDebugMode) {
       print(
         await helper.getArticleByName(articleTitle: articleTitle),
@@ -53,7 +54,9 @@ class ArticleView extends StatelessWidget {
               },
             ),
           ),
-          Spacer(flex: 1,)
+          Spacer(
+            flex: 1,
+          )
         ]),
       ),
     );

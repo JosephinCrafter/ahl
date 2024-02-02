@@ -5,9 +5,11 @@ const String titleKey = 'title';
 const String releaseDateKey = 'releaseDate';
 const String contentKey = 'content';
 const String relationsKey = 'relations';
+const String idKey = 'id';
 
 class Article {
   const Article({
+    required this.id,
     this.title,
     this.releaseDate, // The date of the edition of this code
     this.contentPath,
@@ -15,11 +17,16 @@ class Article {
   });
 
   /// Build an Article from doc.
-  Article.fromDoc(Map<String, dynamic> doc) :
-  title = doc[titleKey],
-  releaseDate = doc[releaseDateKey],
-  contentPath = doc[contentKey],
-  relations = doc[relationsKey];
+  /// These properties can all be null
+  Article.fromDoc(Map<String, dynamic> doc)
+      : id = doc[idKey],
+        title = doc[titleKey],
+        releaseDate = doc[releaseDateKey],
+        contentPath = doc[contentKey],
+        relations = doc[relationsKey];
+
+  /// An unique way to specify an article or data
+  final String id;
 
   /// Article title
   ///
@@ -46,22 +53,22 @@ class Article {
   final List<Map<String, dynamic>>? relations;
 
   /// Create doc from an Article
-  Map<String, dynamic> toDoc() =>
-  {
-    titleKey: title,
-    contentKey: contentPath,
-    releaseDateKey: releaseDate,
-    relationsKey: relations,
-  };
+  Map<String, dynamic> toDoc() => {
+        idKey: id,
+        titleKey: title,
+        contentKey: contentPath,
+        releaseDateKey: releaseDate,
+        relationsKey: relations,
+      };
 
   @override
   String toString() => '''
 {
+  $idKey: $id,
   $titleKey : $title,
   $releaseDateKey: $releaseDate,
   $contentKey: $contentPath,
   $relationsKey: $relations,
 }
-''' ;
-  
+''';
 }

@@ -35,17 +35,17 @@ void main() async {
   Map<String, dynamic> testData = {'title': 'A test on firebase firestore'};
 
   /// a doc fixture
-      Map<String, dynamic> doc = {
-        'title': 'Leves toi et marches',
-        'content': 'articles/leves_toi_et_marches/content.md',
-        'releaseDate': '19/01/2024',
-        'relations': [
-          {
-            'type': 'articles',
-            'path': 'articles/carem/mercredi_des_cendres',
-          },
-        ],
-      };
+  Map<String, dynamic> doc = {
+    'title': 'Leves toi et marches',
+    'content': 'articles/leves_toi_et_marches/content.md',
+    'releaseDate': '19/01/2024',
+    'relations': [
+      {
+        'type': 'articles',
+        'path': 'articles/carem/mercredi_des_cendres',
+      },
+    ],
+  };
   group('Emulator operational verification', () {
     test('Write data to firestore', () async {
       await firestore
@@ -60,7 +60,7 @@ void main() async {
   group(
     'Test on ArticleHelper class.',
     () {
-      ArticleHelper articleHelper = MockArticleHelper();
+      ArticlesRepository articleHelper = MockArticleHelper();
       test(
         'test on class method. This test should fail.',
         () {
@@ -71,7 +71,7 @@ void main() async {
         },
       );
       test('Get raw data from cloud firestore', () {
-        ArticleHelper articleHelper = ArticleHelper();
+        ArticlesRepository articleHelper = ArticlesRepository(firestoreInstance: firestore);
         Future<Article?> namedArticle =
             articleHelper.getArticleByName(articleTitle: 'leves_toi_et_marche');
       });
@@ -81,12 +81,10 @@ void main() async {
   group(
     'test on Article class.',
     () {
-      
-
       test(
         'Instantiate an article without argument',
         () {
-          Article article = const Article();
+          Article article = const Article(id: 'some_article');
 
           var title = article.title;
           var releaseDate = article.releaseDate;
@@ -94,6 +92,7 @@ void main() async {
           var relations = article.relations;
 
           Article article1 = const Article(
+            id: 'title',
             title: 'Title',
             releaseDate: '19/01/2024',
             contentPath: 'articles/some_content.md',
@@ -109,13 +108,13 @@ void main() async {
           expect(article2.title == doc[titleKey], true);
           expect(article2.contentPath == doc[contentKey], true);
           expect(article2.relations == doc[relationsKey], true);
-          expect(article2.releaseDate,  doc[releaseDateKey]);
+          expect(article2.releaseDate, doc[releaseDateKey]);
 
-          expect( article2.toDoc() , equals(doc));
+          expect(article2.toDoc(), equals(doc));
         },
       );
     },
   );
 }
 
-class MockArticleHelper with Mock implements ArticleHelper {}
+class MockArticleHelper with Mock implements ArticlesRepository {}

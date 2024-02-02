@@ -15,7 +15,7 @@ const String dateKey = 'subscriptionDate';
 const String newsletterCollection = 'users';
 
 /// The name of the collection containing articles.
-const String collection = 'articles';
+const String articlesCollection = 'articles';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -26,9 +26,10 @@ const int authPort = 9099;
 const int hostingPort = 5000;
 
 /// Get firebase initialization
-Future<FirebaseApp> firebaseApp = Firebase.initializeApp( // doesn't await this allows the app to run without firebase
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+Future<FirebaseApp> firebaseApp = Firebase.initializeApp(
+  // doesn't await this allows the app to run without firebase
+  options: DefaultFirebaseOptions.currentPlatform,
+);
 
 /// Get the instance of firestore in the app.
 FirebaseFirestore get firestore {
