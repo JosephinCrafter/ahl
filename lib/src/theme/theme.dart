@@ -15,7 +15,7 @@ class AhlTheme {
     colorScheme: ColorScheme.fromSeed(
       seedColor: greenOlive,
       secondary: yellowRelax,
-      secondaryContainer: yellowLight,
+      // secondaryContainer: yellowLight,
       background: yellowLight,
     ),
     textTheme: textTheme,
