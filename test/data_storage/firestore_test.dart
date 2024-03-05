@@ -8,6 +8,8 @@ import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:firebase_storage_mocks/firebase_storage_mocks.dart';
 import 'package:mockito/mockito.dart';
 
+import '../articles/articles_repository_test.dart';
+
 const emulatorHost = 'localhost';
 const firestorePort = 46561;
 const storagePort = 9199;
@@ -16,15 +18,15 @@ void main() async {
 
   // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  FirebaseFirestore firestore;
-  FirebaseStorage storage;
+  FirebaseFirestore fakeFirestore = FakeFirebaseFirestore();
+  FirebaseStorage fakeStorage = MockFirebaseStorage();
 
   // firestore = FirebaseFirestore.instance;
-  firestore = FakeFirebaseFirestore();
+  fakeFirestore = FakeFirebaseFirestore();
   // firestore.useFirestoreEmulator(emulatorHost, firestorePort);
 
   // storage = FirebaseStorage.instance;
-  storage = MockFirebaseStorage();
+  // fakestorage = MockFirebaseStorage();
   // storage.useStorageEmulator(emulatorHost, storagePort);
 
   // setup fixtures
@@ -36,6 +38,7 @@ void main() async {
 
   /// a doc fixture
   Map<String, dynamic> doc = {
+    'id': 'leves_toi_et_marches',
     'title': 'Leves toi et marches',
     'content': 'articles/leves_toi_et_marches/content.md',
     'releaseDate': '19/01/2024',
@@ -48,32 +51,43 @@ void main() async {
   };
   group('Emulator operational verification', () {
     test('Write data to firestore', () async {
-      await firestore
+      await fakeFirestore
           .collection(testCollectionName)
           .doc(docTest)
           .set(testData, SetOptions(merge: true));
 
-      await firestore.doc('$testCollectionName/$docTest').get();
+      await fakeFirestore.doc('$testCollectionName/$docTest').get();
     });
   });
 
   group(
     'Test on ArticleHelper class.',
     () {
-      ArticlesRepository articleHelper = MockArticleHelper();
+      setUp(() {
+        setupRepo(fakeFirestore);
+        populate(
+          fakeFirestore,
+          id: 'some_article_name',
+          title: 'Some Article Title',
+          content: 'gs://',
+        );
+      });
+      ArticlesRepository articleHelper =
+          ArticlesRepository(firestoreInstance: fakeFirestore);
       test(
         'test on class method. This test should fail.',
         () {
           Future<Article?> articleOfTheMonth =
               articleHelper.getArticleOfTheMonth();
           Future<Article?> namedArticle =
-              articleHelper.getArticleByName(articleTitle: 'some_article_name');
+              articleHelper.getArticleById(articleId: 'some_article_name');
         },
       );
       test('Get raw data from cloud firestore', () {
-        ArticlesRepository articleHelper = ArticlesRepository(firestoreInstance: firestore);
+        ArticlesRepository articleHelper =
+            ArticlesRepository(firestoreInstance: fakeFirestore);
         Future<Article?> namedArticle =
-            articleHelper.getArticleByName(articleTitle: 'leves_toi_et_marche');
+            articleHelper.getArticleById(articleId: 'leves_toi_et_marche');
       });
     },
   );

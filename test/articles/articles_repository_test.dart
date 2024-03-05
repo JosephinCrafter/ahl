@@ -31,42 +31,66 @@ const Article noArticle = Article(
 class MockArticlesRepository extends Mock implements ArticlesRepository {}
 
 void main() {
-  FirebaseFirestore fakeFirestore = FakeFirebaseFirestore();
-  ArticlesRepository repo =
-      ArticlesRepository(firestoreInstance: fakeFirestore);
-  setUp(() {
-    var whoWeAreArticle = 'who_we_are';
-    // populate the data
-    var whoWeAreMap = {
-      idKey: 'who_we_are',
-      titleKey: 'Who we are',
-      contentKey: 'some content'
-    };
-    fakeFirestore
-        .collection(articlesCollection)
-        .doc(whoWeAreArticle)
-        .set(whoWeAreMap);
+  group('Test on getArticleOfTheMonth', () {
+    FirebaseFirestore fakeFirestore = FakeFirebaseFirestore();
+    ArticlesRepository repo =
+        ArticlesRepository(firestoreInstance: fakeFirestore);
 
-    // create a setup
-    var setupDoc = 'setup';
-    var setup = {
-      RepoSetUp.highLight: 'who_we_are',
-    };
-    fakeFirestore.collection(articlesCollection).doc(setupDoc).set(setup);
+    test('Get highlighted article without error', () async {
+      // add an article to firestore
+      populate(fakeFirestore);
+
+      // create a setup
+      setupRepo(fakeFirestore, highLight: 'some_article');
+      // get articleOfTheMonth
+      Article? highLight = await repo.getArticleOfTheMonth();
+
+      expect(
+        highLight,
+        isNotNull,
+      );
+      expect(highLight!.title, 'Some Article');
+      fakeFirestore = FakeFirebaseFirestore();
+    }); // Remove setup from fakeFirestore
+
+    ;
+    test('Throws a UnableToGetSetup, no setup', () async {
+      // use another fakeFirestore instead of the above
+      fakeFirestore = FakeFirebaseFirestore();
+
+      // populate without setup
+      populate(fakeFirestore);
+      repo = ArticlesRepository(firestoreInstance: fakeFirestore);
+      await expectLater(
+          repo.getArticleOfTheMonth(), throwsA(isA<UnableToGetSetup>()));
+    });
   });
-  test('each function of ArticlesRepository return Future<Article?>', () async {
-    Article? highLight = await repo.getArticleOfTheMonth();
+}
 
-    expect(highLight, isNotNull);
-    expect(highLight!.title, 'Who we are');
-  });
-  test('getArticleOfTheMonth on ArticlesRepository', () async {
-    Article? articleOfTheMonth;
+void populate(
+  FirebaseFirestore fakeFirestore, {
+  String? id,
+  String? title,
+  String? content,
+}) {
+  var someArticle = id ?? 'some_article';
+  // populate the data
+  var someArticleMap = {
+    idKey: someArticle,
+    titleKey: 'Some Article',
+    contentKey: 'Some Content',
+  };
+  fakeFirestore
+      .collection(articlesCollection)
+      .doc(someArticle)
+      .set(someArticleMap);
+}
 
-    await repo
-        .getArticleOfTheMonth()
-        .then((value) => articleOfTheMonth = value);
-
-    expect(articleOfTheMonth, isNotNull);
-  });
+void setupRepo(FirebaseFirestore fakeFirestore,
+    {String highLight = 'some_article'}) {
+  var setupDoc = 'setup';
+  var setup = {
+    SetUp.highLightKey: highLight,
+  };
+  fakeFirestore.collection(articlesCollection).doc(setupDoc).set(setup);
 }
