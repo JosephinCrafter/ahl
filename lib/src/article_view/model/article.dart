@@ -7,6 +7,16 @@ const String contentKey = 'content';
 const String relationsKey = 'relations';
 const String idKey = 'id';
 
+/// Create a new article by specifying only it's id.
+///
+/// - [id] is the string name of the document of the article.
+///   It can't be null. All other properties can be null.
+/// - [title] is a String that is the title of the Article
+/// - [releaseDate] is a string representation of the date where
+///   the article was written. Eg: '01/02/2024' if the article was
+///   written on the first of february 2024.
+///   This property is used by the inner manager 
+/// - 
 class Article {
   const Article({
     required this.id,
