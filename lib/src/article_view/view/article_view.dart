@@ -16,10 +16,11 @@ class ArticleView extends StatelessWidget {
   final String articleTitle = 'leves_toi_et_marches';
 
   void callback() async {
-    ArticlesRepository helper = ArticlesRepository(firestoreInstance: firestore);
+    ArticlesRepository helper =
+        ArticlesRepository(firestoreInstance: firestore);
     if (kDebugMode) {
       print(
-        await helper.getArticleByName(articleTitle: articleTitle),
+        await helper.getArticleById(articleId: articleTitle),
       );
     }
   }
