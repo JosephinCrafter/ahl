@@ -39,8 +39,7 @@ class AhlAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
 
     /// background color of the app bar
-    var color =
-        backgroundColor ?? Theme.of(context).colorScheme.secondaryContainer;
+    var color = backgroundColor ?? Theme.of(context).colorScheme.background;
 
     /// constraints
     BoxConstraints computedConstraint = BoxConstraints.tight(
