@@ -10,6 +10,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:ahl/src/firebase_constants.dart';
 import 'package:ahl/src/ahl_barrel.dart';
 import '../theme/theme.dart' as theme;
+import '../validation/email_validation.dart';
 
 part 'view/news_letter_view.dart';
 part 'bloc/bloc.dart';

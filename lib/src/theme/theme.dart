@@ -18,6 +18,9 @@ class AhlTheme {
       // secondaryContainer: yellowLight,
       background: yellowLight,
     ),
+    inputDecorationTheme: const InputDecorationTheme(
+      border: OutlineInputBorder(),
+    ),
     textTheme: textTheme,
     useMaterial3: true,
   );
@@ -171,7 +174,6 @@ class AhlTheme {
   // static TextTheme textTheme = Typography.material2021().copyWith();
 
   static TextTheme get textTheme => Typography.blackMountainView.copyWith(
-    
         displayLarge: displayLarge,
         displayMedium: displayMedium,
         displaySmall: displaySmall,
