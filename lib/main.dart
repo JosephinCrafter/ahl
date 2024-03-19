@@ -9,6 +9,8 @@ import 'src/app.dart';
 import 'src/settings/settings_controller.dart';
 import 'src/settings/settings_service.dart';
 
+// test d'auto rebuild avec github
+
 void main() async {
   // Make the app url based
   usePathUrlStrategy();
